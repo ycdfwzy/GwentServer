@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtNetwork/QTcpSocket>
+#include "player.h"
 
 class MyTCPSocket : public QTcpSocket
 {
@@ -13,6 +14,11 @@ public:
 
     void emitReadyread();
     void emitdisconnect();
+
+    Player *player;
+
+    void addplayer(QString name);
+    void deleteplayer();
 
 signals:
     void readyReadClient(MyTCPSocket*);

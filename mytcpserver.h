@@ -17,7 +17,7 @@ public:
     void incomingConnection(qintptr);
     void Read_Data(MyTCPSocket*);
     void Send_Data(MyTCPSocket* client, QString msg);
-    void Disconnect(MyTCPSocket*);
+    //void Disconnect(MyTCPSocket*);
     //QVector<MyTCPSocket*> clients;
 
     gameServer *gs;

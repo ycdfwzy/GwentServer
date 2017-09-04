@@ -5,6 +5,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QVector>
+#include <QList>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -23,10 +24,10 @@ public:
     ~gameServer();
 
     MyTCPServer *server;
-    QVector<MyTCPSocket*> clients;
+    QList<MyTCPSocket*> clients;
 
-    void server_New_Connect();
-    void client_Disconnected();
+    //void server_New_Connect();
+    void client_Disconnected(MyTCPSocket*);
     //void Read_Data(MyTCPSocket*);
     void checklogin(MyTCPSocket*, QString, QString);
 

@@ -15,9 +15,10 @@ void MyTCPServer::incomingConnection(qintptr socketDescriptor){
     qDebug() << "incomingConnection";
     MyTCPSocket *ts = new MyTCPSocket;
     ts->setSocketDescriptor(socketDescriptor);
+    //ts->socketDescriptor()
 
     QObject::connect(ts, &MyTCPSocket::readyReadClient, this, &MyTCPServer::Read_Data);
-    QObject::connect(ts, &MyTCPSocket::Disconnect, this, &MyTCPServer::Disconnect);
+    QObject::connect(ts, &MyTCPSocket::Disconnect, gs, &gameServer::client_Disconnected);
     gs->clients.push_back(ts);
 }
 
@@ -39,8 +40,8 @@ void MyTCPServer::Read_Data(MyTCPSocket* client){
 void MyTCPServer::Send_Data(MyTCPSocket* client, QString msg){
     client->write(msg.toLatin1());
 }
-
+/*
 void MyTCPServer::Disconnect(MyTCPSocket* client){
-    QObject::disconnect(client, &MyTCPSocket::readyReadClient, this, &MyTCPServer::Read_Data);
-    QObject::disconnect(client, &MyTCPSocket::Disconnect, this, &MyTCPServer::Disconnect);
+
 }
+*/
