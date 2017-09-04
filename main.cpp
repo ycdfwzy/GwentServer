@@ -5,6 +5,7 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    MyTCPServer *gs = new MyTCPServer;
+    //MyTCPServer *gs = new MyTCPServer;
+    gameServer *gs = new gameServer;
     return a.exec();
 }

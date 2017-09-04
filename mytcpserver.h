@@ -6,17 +6,21 @@
 #include "mytcpsocket.h"
 #include <QVector>
 
+class gameServer;
+
 class MyTCPServer : public QTcpServer
 {
 public:
-    MyTCPServer();
+    MyTCPServer(gameServer *gs_);
     ~MyTCPServer();
 
     void incomingConnection(qintptr);
     void Read_Data(MyTCPSocket*);
     void Send_Data(MyTCPSocket* client, QString msg);
     void Disconnect(MyTCPSocket*);
-    QVector<MyTCPSocket*> clients;
+    //QVector<MyTCPSocket*> clients;
+
+    gameServer *gs;
 
 signals:
     void readyReadClient(MyTCPSocket*);

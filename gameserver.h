@@ -5,7 +5,15 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QVector>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QVariant>
+#include <QVariantMap>
+#include <QVariantList>
+#include <QFile>
 #include "mytcpsocket.h"
+#include "mytcpserver.h"
 
 class gameServer : public QObject
 {
@@ -14,12 +22,14 @@ public:
     gameServer();
     ~gameServer();
 
-    QTcpServer *server;
+    MyTCPServer *server;
     QVector<MyTCPSocket*> clients;
 
     void server_New_Connect();
     void client_Disconnected();
-    void Read_Data(MyTCPSocket*);
+    //void Read_Data(MyTCPSocket*);
+    void checklogin(MyTCPSocket*, QString, QString);
+
 };
 
 #endif // GAMESERVER_H
