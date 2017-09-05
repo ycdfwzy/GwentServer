@@ -14,7 +14,14 @@ SOURCES += main.cpp \
     gameserver.cpp \
     mytcpsocket.cpp \
     mytcpserver.cpp \
-    player.cpp
+    player.cpp \
+    gameserver.cpp \
+    main.cpp \
+    mytcpserver.cpp \
+    mytcpsocket.cpp \
+    player.cpp \
+    cards/card.cpp \
+    deck.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -31,4 +38,10 @@ HEADERS += \
     gameserver.h \
     mytcpsocket.h \
     mytcpserver.h \
-    player.h
+    player.h \
+    gameserver.h \
+    mytcpserver.h \
+    mytcpsocket.h \
+    player.h \
+    cards/card.h \
+    deck.h

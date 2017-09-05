@@ -31,7 +31,7 @@ void MyTCPServer::Read_Data(MyTCPSocket* client){
         QStringList sl = str0.split(' ');
         if (sl.length() == 2)
             gs->checklogin(client, sl.at(0), sl.at(1));
-        //qDebug() << sl.at(0);
+        qDebug() << gs->clients.size();
         //qDebug() << sl.at(1);
     }
     //qDebug() << str;

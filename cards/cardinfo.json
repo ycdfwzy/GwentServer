@@ -1,0 +1,2747 @@
+[
+    {
+        "No.": 1,
+        "faction": "中立",
+        "name_cn": "战意激升",
+        "name_us": "Adrenaline Rush",
+        "picpath": ":/images/1",
+        "rule": "改变1个单位的坚韧状态。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 2,
+        "faction": "中立",
+        "name_cn": "卜天术",
+        "name_us": "Aeromancy",
+        "picpath": ":/images/2",
+        "rule": "从牌组选择1张铜色/银色天气牌打出，然后洗回剩余卡牌。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 3,
+        "faction": "中立",
+        "name_cn": "阿尔祖双十字召唤术",
+        "name_us": "Alzur's Double–Cross",
+        "picpath": ":/images/3",
+        "rule": "使牌组中最强的单张铜色/银色单位牌获得2点增益，并将其打出。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 4,
+        "faction": "中立",
+        "name_cn": "阿尔祖落雷术",
+        "name_us": "Alzur's Thunder",
+        "picpath": ":/images/4",
+        "rule": "对1个单位造成7点伤害。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 5,
+        "faction": "中立",
+        "name_cn": "蟹蜘蛛毒液",
+        "name_us": "Arachas Venom",
+        "picpath": ":/images/5",
+        "rule": "对3个相邻单位造成4点伤害。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 6,
+        "faction": "尼弗迦德",
+        "name_cn": "暗杀",
+        "name_us": "Assassination",
+        "picpath": ":/images/6",
+        "rule": "锁定并摧毁1个敌军单位。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 7,
+        "faction": "中立",
+        "name_cn": "贝克尔的扭曲之镜",
+        "name_us": "Bekker's Twisted Mirror",
+        "picpath": ":/images/7",
+        "rule": "将最强和最弱单位的战力互换。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 8,
+        "faction": "中立",
+        "name_cn": "刺骨冰霜",
+        "name_us": "Biting Frost",
+        "picpath": ":/images/8",
+        "rule": "在对方单排降下“刺骨冰霜”。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 9,
+        "faction": "中立",
+        "name_cn": "惊悚咆哮",
+        "name_us": "Bloodcurdling Roar",
+        "picpath": ":/images/9",
+        "rule": "摧毁1个友军单位。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 10,
+        "faction": "中立",
+        "name_cn": "指挥号角",
+        "name_us": "Commander's Horn",
+        "picpath": ":/images/10",
+        "rule": "使5个相邻单位获得4点增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 11,
+        "faction": "中立",
+        "name_cn": "诱饵",
+        "name_us": "Decoy",
+        "picpath": ":/images/11",
+        "rule": "将1个友军单位收回手牌，使它获得3点增益，然后再次打出。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 12,
+        "faction": "中立",
+        "name_cn": "阻魔金炸弹",
+        "name_us": "Dimeritium Bomb",
+        "picpath": ":/images/12",
+        "rule": "重置3个相邻单位（含金色牌）。若其中有金色牌，则先将其贬损。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 13,
+        "faction": "中立",
+        "name_cn": "阻魔金镣铐",
+        "name_us": "Dimeritium Shackles",
+        "picpath": ":/images/13",
+        "rule": "选择1个单位（含金色牌），改变其锁定状态。若它是金色牌，则先将其贬损。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 14,
+        "faction": "中立",
+        "name_cn": "干旱",
+        "name_us": "Drought",
+        "picpath": ":/images/14",
+        "rule": "在对方所有排降下“干旱”。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 15,
+        "faction": "中立",
+        "name_cn": "瘟疫",
+        "name_us": "Epidemic",
+        "picpath": ":/images/15",
+        "rule": "摧毁所有最弱的单位。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 16,
+        "faction": "中立",
+        "name_cn": "破晓",
+        "name_us": "First Light",
+        "picpath": ":/images/16",
+        "rule": "生成“晴空”或“调遣”。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 17,
+        "faction": "中立",
+        "name_cn": "免疫增强",
+        "name_us": "Immune Boost",
+        "picpath": ":/images/17",
+        "rule": "使3个相邻单位获得3点护甲和3点增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 18,
+        "faction": "中立",
+        "name_cn": "蔽日浓雾",
+        "name_us": "Impenetrable Fog",
+        "picpath": ":/images/18",
+        "rule": "在对方单排降下“蔽日浓雾”。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 19,
+        "faction": "中立",
+        "name_cn": "撕裂",
+        "name_us": "Lacerate",
+        "picpath": ":/images/19",
+        "rule": "对单排所有单位造成3点伤害。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 20,
+        "faction": "中立",
+        "name_cn": "蝎尾狮毒液",
+        "name_us": "Manticore Venom",
+        "picpath": ":/images/20",
+        "rule": "对5个相邻单位造成4点伤害。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 21,
+        "faction": "中立",
+        "name_cn": "行军令",
+        "name_us": "Marching Orders",
+        "picpath": ":/images/21",
+        "rule": "使牌组中最弱的单张铜色/银色单位牌获得2点增益，并打出它。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 22,
+        "faction": "中立",
+        "name_cn": "致幻菌菇",
+        "name_us": "Mardroeme",
+        "picpath": ":/images/22",
+        "rule": "生成“致病孢子”或“突变诱发物”。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 23,
+        "faction": "中立",
+        "name_cn": "特莉丝雹暴术",
+        "name_us": "Merigold's Hailstorm",
+        "picpath": ":/images/23",
+        "rule": "对单排所有单位造成数值等同于其自身一半战力的伤害（向上取整，无视护甲）。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 24,
+        "faction": "怪物",
+        "name_cn": "怪物巢穴",
+        "name_us": "Monster Nest",
+        "picpath": ":/images/24",
+        "rule": "生成1个铜色食腐或类虫单位，并使它获得2点增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 25,
+        "faction": "松鼠党",
+        "name_cn": "自然的馈赠",
+        "name_us": "Nature's Gift",
+        "picpath": ":/images/25",
+        "rule": "从牌组选择1张铜色/银色特殊牌打出，然后洗回其他卡牌。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 26,
+        "faction": "中立",
+        "name_cn": "死灵术",
+        "name_us": "Necromancy",
+        "picpath": ":/images/26",
+        "rule": "从双方墓场放逐1个单位，其战力将成为1个友军单位的增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 27,
+        "faction": "中立",
+        "name_cn": "过量",
+        "name_us": "Overdose",
+        "picpath": ":/images/27",
+        "rule": "使最多6个友军随机单位获得2点增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 28,
+        "faction": "中立",
+        "name_cn": "昆恩法印",
+        "name_us": "Quen Sign",
+        "picpath": ":/images/28",
+        "rule": "选择手牌中1张单位牌，使它在手牌和牌组中所有同名牌获得护盾和2点增益。已有护盾的单位无法被选择且不享受此效果。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 29,
+        "faction": "中立",
+        "name_cn": "终末之战",
+        "name_us": "Ragh Nar Roog",
+        "picpath": ":/images/29",
+        "rule": "“终末之战”降于对方全场。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 30,
+        "faction": "北方领域",
+        "name_cn": "增援",
+        "name_us": "Reinforcement",
+        "picpath": ":/images/30",
+        "rule": "从牌组选择1张铜色/银色单位牌打出，然后洗回其他卡牌。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 31,
+        "faction": "中立",
+        "name_cn": "新生",
+        "name_us": "Renew",
+        "picpath": ":/images/31",
+        "rule": "从己方墓场复活1个金色单位。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 32,
+        "faction": "史凯利杰",
+        "name_cn": "恢复",
+        "name_us": "Restore",
+        "picpath": ":/images/32",
+        "rule": "将墓场1张单位牌置入手牌，随后丢弃1张手牌。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 33,
+        "faction": "中立",
+        "name_cn": "皇家审判",
+        "name_us": "Royal Decree",
+        "picpath": ":/images/33",
+        "rule": "从牌组选择1张金色牌打出，然后洗回其他卡牌。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 34,
+        "faction": "中立",
+        "name_cn": "烧灼",
+        "name_us": "Scorch",
+        "picpath": ":/images/34",
+        "rule": "摧毁所有最强的单位。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 35,
+        "faction": "中立",
+        "name_cn": "史凯利杰风暴",
+        "name_us": "Skellige Storm",
+        "picpath": ":/images/35",
+        "rule": "在对方单排降下“史凯利杰风暴”。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 36,
+        "faction": "中立",
+        "name_cn": "斯坦姆福特的山崩术",
+        "name_us": "Stammelford's Tremors",
+        "picpath": ":/images/36",
+        "rule": "对最多6个敌军随机单位造成2点伤害。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 37,
+        "faction": "中立",
+        "name_cn": "召唤法阵",
+        "name_us": "Summoning Circle",
+        "picpath": ":/images/37",
+        "rule": "生成1张对方上张打出的单位牌的基础复制牌（间谍单位除外）。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 38,
+        "faction": "中立",
+        "name_cn": "燕子药水",
+        "name_us": "Swallow Potion",
+        "picpath": ":/images/38",
+        "rule": "使1个单位获得8点增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 39,
+        "faction": "中立",
+        "name_cn": "最后的愿望",
+        "name_us": "The Last Wish",
+        "picpath": ":/images/39",
+        "rule": "从牌组顶端抽2张铜色/银色牌。打出1张，洗回另1张。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 40,
+        "faction": "中立",
+        "name_cn": "雷霆药水",
+        "name_us": "Thunderbolt Potion",
+        "picpath": ":/images/40",
+        "rule": "使3个相邻单位获得4点增益。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 41,
+        "faction": "中立",
+        "name_cn": "倾盆大雨",
+        "name_us": "Torrential Rain",
+        "picpath": ":/images/41",
+        "rule": "在对方单排降下“倾盆大雨”。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 42,
+        "faction": "尼弗迦德",
+        "name_cn": "通敌",
+        "name_us": "Treason",
+        "picpath": ":/images/42",
+        "rule": "从对方牌组底端打出1张牌。",
+        "type": "属性：特殊"
+    },
+    {
+        "No.": 43,
+        "faction": "中立",
+        "name_cn": "白霜",
+        "name_us": "White Frost",
+        "picpath": ":/images/43",
+        "rule": "在对方单排及其上方一排降下“刺骨冰霜”。",
+        "type": "属性：特殊，天气"
+    },
+    {
+        "No.": 44,
+        "faction": "中立",
+        "name_cn": "杜度",
+        "name_us": "Dudu",
+        "picpath": ":/images/44",
+        "rule": "部署：选择1个敌军单位，复制它的战力。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 45,
+        "faction": "史凯利杰",
+        "name_cn": "坎毕",
+        "name_us": "Kambi",
+        "picpath": ":/images/45",
+        "rule": "3回合后，己方回合开始时：生成“汉姆多尔”。",
+        "type": "属性：佚亡，坚守"
+    },
+    {
+        "No.": 46,
+        "faction": "北方领域",
+        "name_cn": "菲丽芭·艾哈特",
+        "name_us": "Philippa Eilhart",
+        "picpath": ":/images/46",
+        "rule": "部署：对1个敌军单位造成5点伤害，再对敌军随机单位分别造成4、3、2、1点伤害。对同一目标只能造成一次伤害。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 47,
+        "faction": "史凯利杰",
+        "name_cn": "弗蕾雅女祭司",
+        "name_us": "Priestess of Freya",
+        "picpath": ":/images/47",
+        "rule": "部署：复活1个铜色单位。",
+        "type": "属性：佚亡，坚守"
+    },
+    {
+        "No.": 48,
+        "faction": "北方领域",
+        "name_cn": "掠夺者斥候",
+        "name_us": "Reaver Scout",
+        "picpath": ":/images/48",
+        "rule": "部署：选择1个非同名的友军铜色单位，从牌组打出1张它的同名牌。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 49,
+        "faction": "尼弗迦德",
+        "name_cn": "维可瓦洛医师",
+        "name_us": "Vicovaro Medic",
+        "picpath": ":/images/49",
+        "rule": "部署：从对方墓场复活1个铜色单位。",
+        "type": "属性：佚亡"
+    },
+    {
+        "No.": 50,
+        "faction": "尼弗迦德",
+        "name_cn": "维可瓦洛见习法师",
+        "name_us": "Vicovaro Novice",
+        "picpath": ":/images/50",
+        "rule": "部署：触发1个敌军间谍“大使”/“特使”单位的能力。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 51,
+        "faction": "尼弗迦德",
+        "name_cn": "大使",
+        "name_us": "Ambassador",
+        "picpath": ":/images/51",
+        "rule": "部署：使1个友军单位获得10点增益。",
+        "type": "站位：近战/不忠诚"
+    },
+    {
+        "No.": 52,
+        "faction": "松鼠党",
+        "name_cn": "巴克莱·艾尔斯",
+        "name_us": "Barclay Els",
+        "picpath": ":/images/52",
+        "rule": "部署：从牌组打出1张随机铜色/银色矮人牌，并使它获得3点增益。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 53,
+        "faction": "尼弗迦德",
+        "name_cn": "作战工程师",
+        "name_us": "Combat Engineer",
+        "picpath": ":/images/53",
+        "rule": "部署：改变1个单位的坚韧状态。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 54,
+        "faction": "松鼠党",
+        "name_cn": "多尔·布雷坦纳保卫者",
+        "name_us": "Dol Blathanna Protector",
+        "picpath": ":/images/54",
+        "rule": "位于己方手牌、牌组或战场时，己方每打出1张特殊牌，便获得1点增益。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 55,
+        "faction": "松鼠党",
+        "name_cn": "精灵佣兵",
+        "name_us": "Elven Mercenary",
+        "picpath": ":/images/55",
+        "rule": "部署：从牌组顶端抽2张铜色特殊牌。打出1张，洗回另1张。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 56,
+        "faction": "尼弗迦德",
+        "name_cn": "特使",
+        "name_us": "Emissary",
+        "picpath": ":/images/56",
+        "rule": "部署：从牌组顶端抽2张铜色单位牌（“特使”除外）。打出1张，洗回另1张。",
+        "type": "站位：任意/不忠诚"
+    },
+    {
+        "No.": 57,
+        "faction": "怪物",
+        "name_cn": "小雾妖",
+        "name_us": "Foglet",
+        "picpath": ":/images/57",
+        "rule": "每当己方“蔽日浓雾”在敌排生效，便从牌组打出，或复活至己方同排。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 58,
+        "faction": "怪物",
+        "name_cn": "盖尔",
+        "name_us": "Ge'els",
+        "picpath": ":/images/58",
+        "rule": "部署：从牌组顶端各抽1张金色牌和银色牌。打出1张，将另1张置于牌组顶端。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 59,
+        "faction": "怪物",
+        "name_cn": "墓穴巫婆",
+        "name_us": "Grave Hag",
+        "picpath": ":/images/59",
+        "rule": "1回合后，己方回合开始时：吞噬己方墓场所有单位。每吞噬1个单位，便获得1点增益。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 60,
+        "faction": "北方领域",
+        "name_cn": "亨赛特",
+        "name_us": "Henselt",
+        "picpath": ":/images/60",
+        "rule": "生成“亨赛特”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 61,
+        "faction": "尼弗迦德",
+        "name_cn": "帝国魔像",
+        "name_us": "Imperial Golem",
+        "picpath": ":/images/61",
+        "rule": "指令：从牌组打出。",
+        "type": "属性：构造体"
+    },
+    {
+        "No.": 62,
+        "faction": "中立",
+        "name_cn": "获奖奶牛",
+        "name_us": "Prize-Winning Cow",
+        "picpath": ":/images/62",
+        "rule": "复仇：在同排生成1个“羊角恶魔”。",
+        "type": "属性：野兽，佚亡"
+    },
+    {
+        "No.": 63,
+        "faction": "怪物",
+        "name_cn": "蟹蜘蛛",
+        "name_us": "Arachas",
+        "picpath": ":/images/63",
+        "rule": "部署：从牌组打出所有“蟹蜘蛛”。",
+        "type": "属性：类虫生物"
+    },
+    {
+        "No.": 64,
+        "faction": "松鼠党",
+        "name_cn": "蓝山突击队",
+        "name_us": "Blue Mountain Commando",
+        "picpath": ":/images/64",
+        "rule": "被移动位置时获得2点增益。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 65,
+        "faction": "北方领域",
+        "name_cn": "蓝衣铁卫突击队",
+        "name_us": "Blue Stripes Commando",
+        "picpath": ":/images/65",
+        "rule": "有战力与自身相同的非同名友军单位被打出时，从牌组打出至同一排（每回合限1张）。",
+        "type": "属性：蓝衣铁卫"
+    },
+    {
+        "No.": 66,
+        "faction": "怪物",
+        "name_cn": "赛尔伊诺鹰身女妖",
+        "name_us": "Celaeno Harpy",
+        "picpath": ":/images/66",
+        "rule": "部署：在自身左侧生成2个“鹰身女妖蛋”。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 67,
+        "faction": "史凯利杰",
+        "name_cn": "德拉蒙家族持盾女卫",
+        "name_us": "Clan Drummond Shieldmaiden",
+        "picpath": ":/images/67",
+        "rule": "部署：对1个单位造成2点伤害。若目标之前已受伤，则从牌组打出1名“德拉蒙家族持盾女卫”。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 68,
+        "faction": "史凯利杰",
+        "name_cn": "图尔希克家族斧兵",
+        "name_us": "Clan Tuirseach Axeman",
+        "picpath": ":/images/68",
+        "rule": "每有1个敌军单位受到伤害，便获得1点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 69,
+        "faction": "北方领域",
+        "name_cn": "戴斯摩",
+        "name_us": "Dethmold",
+        "picpath": ":/images/69",
+        "rule": "部署：生成“倾盆大雨”、“晴空”或“阿尔祖落雷术”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 70,
+        "faction": "北方领域",
+        "name_cn": "迪科斯彻",
+        "name_us": "Dijkstra",
+        "picpath": ":/images/70",
+        "rule": "部署：从牌组顶端打出2张牌。",
+        "type": "站位：任意/不忠诚"
+    },
+    {
+        "No.": 71,
+        "faction": "怪物",
+        "name_cn": "血魔",
+        "name_us": "Ekimmara",
+        "picpath": ":/images/71",
+        "rule": "部署：获得坚韧。",
+        "type": "属性：吸血鬼"
+    },
+    {
+        "No.": 72,
+        "faction": "松鼠党",
+        "name_cn": "精灵战舞者",
+        "name_us": "Elven Wardancer",
+        "picpath": ":/images/72",
+        "rule": "被调度后直接从牌组打出。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 73,
+        "faction": "史凯利杰",
+        "name_cn": "格雷密斯特",
+        "name_us": "Gremist",
+        "picpath": ":/images/73",
+        "rule": "部署：生成“蔽日浓雾”、“晴空”或“惊悚咆哮”。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 74,
+        "faction": "史凯利杰",
+        "name_cn": "“瘸子”哈罗德",
+        "name_us": "Harald the Cripple",
+        "picpath": ":/images/74",
+        "rule": "生成“瘸子”哈罗德。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 75,
+        "faction": "怪物",
+        "name_cn": "鹰身女妖",
+        "name_us": "Harpy",
+        "picpath": ":/images/75",
+        "rule": "部署：触发相邻单位的遗愿能力。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 76,
+        "faction": "中立",
+        "name_cn": "爱丽丝",
+        "name_us": "Iris",
+        "picpath": ":/images/76",
+        "rule": "遗愿：使对面战场的所有单位获得3点增益。",
+        "type": "站位：任意/不忠诚"
+    },
+    {
+        "No.": 77,
+        "faction": "尼弗迦德",
+        "name_cn": "约翰·卡尔维特",
+        "name_us": "John Calveit",
+        "picpath": ":/images/77",
+        "rule": "生成“约翰·卡尔维特”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 78,
+        "faction": "北方领域",
+        "name_cn": "科德温中士",
+        "name_us": "Kaedweni Sergeant",
+        "picpath": ":/images/78",
+        "rule": "部署：使自身和己方手牌、牌组及战场中所有战力与之相同的忠诚铜色单位获得1点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 79,
+        "faction": "北方领域",
+        "name_cn": "科德温攻城台",
+        "name_us": "Kaedweni Siege Platform",
+        "picpath": ":/images/79",
+        "rule": "部署：将1个友军机械单位收回手牌，再立即打出。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 80,
+        "faction": "怪物",
+        "name_cn": "孽鬼",
+        "name_us": "Nekker",
+        "picpath": ":/images/80",
+        "rule": "位于己方手牌、牌组或战场时，每当有友军单位吞噬1张牌，便获得1点增益。",
+        "type": "属性：食人魔"
+    },
+    {
+        "No.": 81,
+        "faction": "北方领域",
+        "name_cn": "萨宾娜·格里维希格",
+        "name_us": "Sabrina Glevissig",
+        "picpath": ":/images/81",
+        "rule": "遗愿：将该排最弱单位的战力应用于全排所有单位。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 82,
+        "faction": "史凯利杰",
+        "name_cn": "希格德莉法",
+        "name_us": "Sigrdrifa",
+        "picpath": ":/images/82",
+        "rule": "部署：复活1个单位。",
+        "type": "属性：佚亡，坚守"
+    },
+    {
+        "No.": 83,
+        "faction": "北方领域",
+        "name_cn": "泰莫利亚步兵",
+        "name_us": "Temerian Infantryman",
+        "picpath": ":/images/83",
+        "rule": "部署：将牌组中所有的“泰莫利亚步兵”打出至同一排。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 84,
+        "faction": "北方领域",
+        "name_cn": "巨型投石机",
+        "name_us": "Trebuchet",
+        "picpath": ":/images/84",
+        "rule": "部署：对3个相邻敌军单位造成1点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 85,
+        "faction": "尼弗迦德",
+        "name_cn": "凡赫玛",
+        "name_us": "Vanhemar",
+        "picpath": ":/images/85",
+        "rule": "部署：生成“刺骨冰霜”、“晴空”或“斯坦姆福特的山崩术”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 86,
+        "faction": "怪物",
+        "name_cn": "沼泽巫婆",
+        "name_us": "Water Hag",
+        "picpath": ":/images/86",
+        "rule": "部署：生成“倾盆大雨”、“晴空”或“撕裂”。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 87,
+        "faction": "怪物",
+        "name_cn": "狂猎导航员",
+        "name_us": "Wild Hunt Navigator",
+        "picpath": ":/images/87",
+        "rule": "部署：选择1个非同名的友军铜色狂猎单位，从牌组打出1张它的同名牌。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 88,
+        "faction": "北方领域",
+        "name_cn": "艾瑞图萨学院学员",
+        "name_us": "Aretuza Adept",
+        "picpath": ":/images/88",
+        "rule": "部署：从牌组随机打出1张铜色天气牌。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 89,
+        "faction": "尼弗迦德",
+        "name_cn": "奥克斯",
+        "name_us": "Auckes",
+        "picpath": ":/images/89",
+        "rule": "部署：改变2个单位的锁定状态。若它们为敌军，则一并造成1点伤害。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 90,
+        "faction": "松鼠党",
+        "name_cn": "布罗瓦尔·霍格",
+        "name_us": "Brouver Hoog",
+        "picpath": ":/images/90",
+        "rule": "生成“布罗瓦尔・霍格”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 91,
+        "faction": "尼弗迦德",
+        "name_cn": "卡西尔",
+        "name_us": "Cahir",
+        "picpath": ":/images/91",
+        "rule": "部署：若使用者阵营为尼弗迦德，则触发己方领袖的部署能力。",
+        "type": "属性：佚亡，坚守"
+    },
+    {
+        "No.": 92,
+        "faction": "怪物",
+        "name_cn": "看门人",
+        "name_us": "Caretaker",
+        "picpath": ":/images/92",
+        "rule": "部署：从对方墓场复活1个单位。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 93,
+        "faction": "史凯利杰",
+        "name_cn": "奎特家族突袭者",
+        "name_us": "Clan an Craite Raider",
+        "picpath": ":/images/93",
+        "rule": "老兵（1）。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 94,
+        "faction": "史凯利杰",
+        "name_cn": "海玫家族诗人",
+        "name_us": "Clan Heymaey Skald",
+        "picpath": ":/images/94",
+        "rule": "老兵（1）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 95,
+        "faction": "史凯利杰",
+        "name_cn": "克拉克·奎特",
+        "name_us": "Crach an Craite",
+        "picpath": ":/images/95",
+        "rule": "生成“克拉克・奎特”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 96,
+        "faction": "尼弗迦德",
+        "name_cn": "迪尔兰步兵",
+        "name_us": "Daerlan Foot Soldiers",
+        "picpath": ":/images/96",
+        "rule": "被揭示时直接打出，然后从牌组顶端抽1张牌。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 97,
+        "faction": "史凯利杰",
+        "name_cn": "杜雷格·邦迪",
+        "name_us": "Draig Bon–Dhu",
+        "picpath": ":/images/97",
+        "rule": "部署：使墓场中最多2个单位获得3点强化。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 98,
+        "faction": "北方领域",
+        "name_cn": "褐旗营重骑兵",
+        "name_us": "Dun Banner Heavy Cavalry",
+        "picpath": ":/images/98",
+        "rule": "部署：移除2个单位的护甲。扣除的护甲值将被转化为此单位的战力。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 99,
+        "faction": "北方领域",
+        "name_cn": "褐旗营轻骑兵",
+        "name_us": "Dun Banner Light Cavalry",
+        "picpath": ":/images/99",
+        "rule": "己方回合开始时，若落后20点战力以上且尚未放弃跟牌，则从牌组打出。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 100,
+        "faction": "北方领域",
+        "name_cn": "战地医师",
+        "name_us": "Field Medic",
+        "picpath": ":/images/100",
+        "rule": "部署：将1个非同名的友军铜色单位洗回牌组，随后从牌组打出1张随机铜色单位牌。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 101,
+        "faction": "中立",
+        "name_cn": "杰洛特：伊格尼法印",
+        "name_us": "Geralt: Igni",
+        "picpath": ":/images/101",
+        "rule": "部署：若对方同排总战力不低于20，则摧毁其上所有最强的单位。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 102,
+        "faction": "怪物",
+        "name_cn": "食尸鬼",
+        "name_us": "Ghoul",
+        "picpath": ":/images/102",
+        "rule": "部署：吞噬双方墓场中1个随机单位。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 103,
+        "faction": "松鼠党",
+        "name_cn": "私枭治疗者",
+        "name_us": "Hawker Healer",
+        "picpath": ":/images/103",
+        "rule": "部署：使右侧2个单位获得3点增益。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 104,
+        "faction": "松鼠党",
+        "name_cn": "私枭走私者",
+        "name_us": "Hawker Smuggler",
+        "picpath": ":/images/104",
+        "rule": "每有1个敌军单位被打出，便获得1点增益。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 105,
+        "faction": "松鼠党",
+        "name_cn": "艾达·艾敏",
+        "name_us": "Ida Emean",
+        "picpath": ":/images/105",
+        "rule": "部署：生成“蔽日浓雾”、“晴空”或“昆恩法印”。",
+        "type": "属性：精灵，法师"
+    },
+    {
+        "No.": 106,
+        "faction": "北方领域",
+        "name_cn": "科德温攻城后援",
+        "name_us": "Kaedweni Siege Support",
+        "picpath": ":/images/106",
+        "rule": "使后续打出的友军单位获得1点增益，机械单位获得1点增益和1点护甲。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 107,
+        "faction": "史凯利杰",
+        "name_cn": "布兰王",
+        "name_us": "King Bran",
+        "picpath": ":/images/107",
+        "rule": "部署：从牌组丢弃最多3张牌，其中的单位牌获得1点强化，随后重洗牌组。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 108,
+        "faction": "松鼠党",
+        "name_cn": "玛丽娜",
+        "name_us": "Malena",
+        "picpath": ":/images/108",
+        "rule": "每当己方回合开始时，将位于本侧战场其他排的1个随机单位移至此排。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 109,
+        "faction": "北方领域",
+        "name_cn": "玛格丽塔·露克斯安提尔",
+        "name_us": "Margarita Laux–Antille",
+        "picpath": ":/images/109",
+        "rule": "部署：重置1个单位，并改变它的锁定状态。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 110,
+        "faction": "尼弗迦德",
+        "name_cn": "那乌西卡旅旗手",
+        "name_us": "Nauzicaa Standard Bearer",
+        "picpath": ":/images/110",
+        "rule": "部署：移除所在排的天气效果，并使1个友军单位或己方手牌中被揭示的单位牌获得3点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 111,
+        "faction": "尼弗迦德",
+        "name_cn": "彼得·萨尔格温利",
+        "name_us": "Peter Saar Gwynleve",
+        "picpath": ":/images/111",
+        "rule": "部署：重置1个单位。若为友军，使它获得3点强化；若为敌军，对它造成3点丢弃。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 112,
+        "faction": "北方领域",
+        "name_cn": "普西拉",
+        "name_us": "Priscilla",
+        "picpath": ":/images/112",
+        "rule": "每当己方回合结束时，使1个除自身外的友军随机单位获得3点增益。被移出战场前最多可提供4次增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 113,
+        "faction": "史凯利杰",
+        "name_cn": "女王卫队",
+        "name_us": "Queensguard",
+        "picpath": ":/images/113",
+        "rule": "部署：复活己方所有“女王卫队”。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 114,
+        "faction": "尼弗迦德",
+        "name_cn": "雷恩法",
+        "name_us": "Rainfarn",
+        "picpath": ":/images/114",
+        "rule": "部署：从牌组选择1张不忠单位牌（铜色/银色）打出，然后洗回其他卡牌。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 115,
+        "faction": "北方领域",
+        "name_cn": "掠夺者猎人",
+        "name_us": "Reaver Hunter",
+        "picpath": ":/images/115",
+        "rule": "部署或会师：使己方手牌、牌组和战场中所有的“掠夺者猎人”获得1点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 116,
+        "faction": "中立",
+        "name_cn": "萝卜",
+        "name_us": "Roach",
+        "picpath": ":/images/116",
+        "rule": "己方每次从手牌打出金色单位牌时，便将牌组中的“萝卜”在其部署能力结算之前召唤至随机位置。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 117,
+        "faction": "北方领域",
+        "name_cn": "夏妮",
+        "name_us": "Shani",
+        "picpath": ":/images/117",
+        "rule": "部署：复活1个单位，并使其获得4点护甲。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 118,
+        "faction": "尼弗迦德",
+        "name_cn": "侦察员",
+        "name_us": "Spotter",
+        "picpath": ":/images/118",
+        "rule": "位于己方手牌、牌组或战场时，双方每揭示1张牌，便获得1点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 119,
+        "faction": "松鼠党",
+        "name_cn": "维里赫德旅先锋",
+        "name_us": "Vrihedd Vanguard",
+        "picpath": ":/images/119",
+        "rule": "位于己方手牌、牌组或战场时，己方每调度1张牌，便获得1点增益。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 120,
+        "faction": "怪物",
+        "name_cn": "狂猎之犬",
+        "name_us": "Wild Hunt Hound",
+        "picpath": ":/images/120",
+        "rule": "部署：从牌组打出“刺骨冰霜”。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 121,
+        "faction": "中立",
+        "name_cn": "叶奈法：咒术师",
+        "name_us": "Yennefer: The Conjurer",
+        "picpath": ":/images/121",
+        "rule": "每当己方回合开始时，对所有敌军最强单位造成1点伤害。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 122,
+        "faction": "尼弗迦德",
+        "name_cn": "阿尔巴枪兵",
+        "name_us": "Alba Pikeman",
+        "picpath": ":/images/122",
+        "rule": "2回合后，己方回合开始时：将牌组中1张“阿尔巴枪兵”打出至同一排。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 123,
+        "faction": "史凯利杰",
+        "name_cn": "碧尔娜·布兰",
+        "name_us": "Birna Bran",
+        "picpath": ":/images/123",
+        "rule": "部署：将对方墓场1个单位置入己方墓场。",
+        "type": "站位：任意/不忠诚"
+    },
+    {
+        "No.": 124,
+        "faction": "尼弗迦德",
+        "name_cn": "黑步兵强弩手",
+        "name_us": "Black Infantry Arbalest",
+        "picpath": ":/images/124",
+        "rule": "部署：对1个敌军单位造成3点伤害。若它已被增益，则伤害提升至5点。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 125,
+        "faction": "北方领域",
+        "name_cn": "尸婴",
+        "name_us": "Botchling",
+        "picpath": ":/images/125",
+        "rule": "部署：使己方手牌、牌组和墓场中所有的“家事妖精”获得5点增益。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 126,
+        "faction": "松鼠党",
+        "name_cn": "布蕾恩",
+        "name_us": "Braenn",
+        "picpath": ":/images/126",
+        "rule": "部署：对1个敌军单位造成数值等同于本牌战力的伤害。",
+        "type": "属性：树精"
+    },
+    {
+        "No.": 127,
+        "faction": "史凯利杰",
+        "name_cn": "至尊冠军",
+        "name_us": "Champion of Champions",
+        "picpath": ":/images/127",
+        "rule": "每当己方回合开始时，若同排没有其他单位，则获得2点强化。",
+        "type": "属性：食人魔"
+    },
+    {
+        "No.": 128,
+        "faction": "中立",
+        "name_cn": "希里",
+        "name_us": "Ciri",
+        "picpath": ":/images/128",
+        "rule": "如果此局战败，则返回手牌。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 129,
+        "faction": "史凯利杰",
+        "name_cn": "布洛克瓦尔家族弓箭手",
+        "name_us": "Clan Brokvar Archer",
+        "picpath": ":/images/129",
+        "rule": "老兵（1）。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 130,
+        "faction": "史凯利杰",
+        "name_cn": "布洛克瓦尔家族猎人",
+        "name_us": "Clan Brokvar Hunter",
+        "picpath": ":/images/130",
+        "rule": "每有1个相邻单位受到伤害，便获得1点强化。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 131,
+        "faction": "史凯利杰",
+        "name_cn": "迪门家族海盗船长",
+        "name_us": "Clan Dimun Pirate Captain",
+        "picpath": ":/images/131",
+        "rule": "老兵（1）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 132,
+        "faction": "史凯利杰",
+        "name_cn": "托达洛克家族盔甲匠",
+        "name_us": "Clan Tordarroch Armorsmith",
+        "picpath": ":/images/132",
+        "rule": "老兵（1）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 133,
+        "faction": "史凯利杰",
+        "name_cn": "托达洛克家族盾牌匠",
+        "name_us": "Clan Tordarroch Shieldsmith",
+        "picpath": ":/images/133",
+        "rule": "老兵（1）。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 134,
+        "faction": "史凯利杰",
+        "name_cn": "珊瑚",
+        "name_us": "Coral",
+        "picpath": ":/images/134",
+        "rule": "部署：选定1个单位，使它同排所有单位的当前战力减半（向下取整，无视护甲）。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 135,
+        "faction": "尼弗迦德",
+        "name_cn": "辛西亚",
+        "name_us": "Cynthia",
+        "picpath": ":/images/135",
+        "rule": "部署：揭示对方手牌中最强的单张单位牌（含金色牌），使自身获得数值等同于其战力的增益。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 136,
+        "faction": "松鼠党",
+        "name_cn": "多尔·布雷坦纳弓箭手",
+        "name_us": "Dol Blathanna Archer",
+        "picpath": ":/images/136",
+        "rule": "部署：对选定敌军单位分别造成3、1点伤害。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 137,
+        "faction": "松鼠党",
+        "name_cn": "矮人好斗份子",
+        "name_us": "Dwarven Skirmisher",
+        "picpath": ":/images/137",
+        "rule": "部署：对1个敌军单位造成3点伤害。若没有摧毁目标，则获得2点增益。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 138,
+        "faction": "松鼠党",
+        "name_cn": "艾思娜",
+        "name_us": "Eithné",
+        "picpath": ":/images/138",
+        "rule": "生成“艾思娜”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 139,
+        "faction": "怪物",
+        "name_cn": "艾瑞汀",
+        "name_us": "Eredin",
+        "picpath": ":/images/139",
+        "rule": "生成“艾瑞汀”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 140,
+        "faction": "中立",
+        "name_cn": "艾斯凯尔",
+        "name_us": "Eskel",
+        "picpath": ":/images/140",
+        "rule": "部署：从牌组打出“维瑟米尔”和“兰伯特”。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 141,
+        "faction": "怪物",
+        "name_cn": "鹿首恶魔",
+        "name_us": "Fiend",
+        "picpath": ":/images/141",
+        "rule": "部署：改变1个单位的锁定状态。若目标为敌军，则对其造成数值等同于它自身一半战力的伤害（向上取整，无视护甲）。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 142,
+        "faction": "北方领域",
+        "name_cn": "弗尔泰斯特",
+        "name_us": "Foltest",
+        "picpath": ":/images/142",
+        "rule": "生成“弗尔泰斯特”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 143,
+        "faction": "中立",
+        "name_cn": "刚特·欧迪姆",
+        "name_us": "Gaunter O'Dimm",
+        "picpath": ":/images/143",
+        "rule": "部署：猜测对方牌组中1张随机铜色/银色单位牌的战力是否高于5点。赌胜：从牌组选择1张牌打出，洗回其他牌。告负：对方从牌组顶端抽1张铜色/银色牌。平手：双方各从牌组顶端抽1张铜色/银色牌。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 144,
+        "faction": "怪物",
+        "name_cn": "巨型蟾蜍",
+        "name_us": "Giant Toad",
+        "picpath": ":/images/144",
+        "rule": "部署：吞噬1张手牌，随后从牌组顶端抽1张牌。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 145,
+        "faction": "史凯利杰",
+        "name_cn": "“黑手”霍格",
+        "name_us": "Holger Blackhand",
+        "picpath": ":/images/145",
+        "rule": "老兵（1）。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 146,
+        "faction": "怪物",
+        "name_cn": "寒冰巨人",
+        "name_us": "Ice Giant",
+        "picpath": ":/images/146",
+        "rule": "若场上任意位置有“刺骨冰霜”生效，则获得5点增益。当场上最后一个“刺骨冰霜”效果消失时，受到5点伤害。",
+        "type": "属性：食人魔"
+    },
+    {
+        "No.": 147,
+        "faction": "松鼠党",
+        "name_cn": "伊斯琳妮",
+        "name_us": "Ithlinne",
+        "picpath": ":/images/147",
+        "rule": "部署：从牌组选择1张铜色特殊牌打出，随后生成1张它的同名牌，洗回其他卡牌。",
+        "type": "属性：精灵，法师"
+    },
+    {
+        "No.": 148,
+        "faction": "尼弗迦德",
+        "name_cn": "约阿希姆·德·维特",
+        "name_us": "Joachim de Wett",
+        "picpath": ":/images/148",
+        "rule": "部署：打出牌组顶端的银色或铜色忠诚单位牌，并使它获得10点增益。",
+        "type": "站位：任意/不忠诚"
+    },
+    {
+        "No.": 149,
+        "faction": "怪物",
+        "name_cn": "鲜血猎食者",
+        "name_us": "Katakan",
+        "picpath": ":/images/149",
+        "rule": "部署：从双方墓场吞噬1张单位牌。",
+        "type": "属性：吸血鬼"
+    },
+    {
+        "No.": 150,
+        "faction": "北方领域",
+        "name_cn": "凯拉·梅兹",
+        "name_us": "Keira Metz",
+        "picpath": ":/images/150",
+        "rule": "部署：生成“昆恩法印”、“瘟疫”或“雷霆药水”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 151,
+        "faction": "中立",
+        "name_cn": "乞丐王",
+        "name_us": "King of Beggars",
+        "picpath": ":/images/151",
+        "rule": "部署，英勇：使自身获得强化，直至双方战力相等，或使基础战力最多达到15点。",
+        "type": "属性：衰退"
+    },
+    {
+        "No.": 152,
+        "faction": "中立",
+        "name_cn": "兰伯特",
+        "name_us": "Lambert",
+        "picpath": ":/images/152",
+        "rule": "部署：从牌组打出“艾斯凯尔”和“维瑟米尔”。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 153,
+        "faction": "史凯利杰",
+        "name_cn": "轻型长船",
+        "name_us": "Light Longship",
+        "picpath": ":/images/153",
+        "rule": "每当己方回合开始时，对右侧1个单位造成1点伤害，随后自身获得2点强化。",
+        "type": "属性：机械，衰退"
+    },
+    {
+        "No.": 154,
+        "faction": "北方领域",
+        "name_cn": "家事妖精",
+        "name_us": "Lubberkin",
+        "picpath": ":/images/154",
+        "rule": "部署：使己方手牌、牌组和墓场中所有的“尸婴”获得5点增益。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 155,
+        "faction": "松鼠党",
+        "name_cn": "玛哈坎捍卫者",
+        "name_us": "Mahakam Defender",
+        "picpath": ":/images/155",
+        "rule": "部署：获得坚韧。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 156,
+        "faction": "松鼠党",
+        "name_cn": "玛哈坎守卫",
+        "name_us": "Mahakam Guard",
+        "picpath": ":/images/156",
+        "rule": "部署：使1个友军单位获得3点增益。矮人牌则获得4点增益。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 157,
+        "faction": "中立",
+        "name_cn": "米尔加塔布雷克",
+        "name_us": "Myrgtabrakke",
+        "picpath": ":/images/157",
+        "rule": "部署：对选定目标分别造成2、2、1点伤害。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 158,
+        "faction": "尼弗迦德",
+        "name_cn": "那乌西卡旅",
+        "name_us": "Nauzicaa Brigade",
+        "picpath": ":/images/158",
+        "rule": "部署：对1个敌军间谍单位造成5点伤害。若摧毁目标，则获得4点强化。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 159,
+        "faction": "怪物",
+        "name_cn": "孽鬼战士",
+        "name_us": "Nekker Warrior",
+        "picpath": ":/images/159",
+        "rule": "部署：在牌组底端为1个选定的友军铜色单位创造2张它的初始同名牌。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 160,
+        "faction": "北方领域",
+        "name_cn": "欧德林",
+        "name_us": "Odrin",
+        "picpath": ":/images/160",
+        "rule": "每当己方回合开始时，移至随机位置，并使同排所有单位获得1点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 161,
+        "faction": "怪物",
+        "name_cn": "老矛头：昏睡",
+        "name_us": "Old Speartip: Asleep",
+        "picpath": ":/images/161",
+        "rule": "己方回合开始时，若对方同排有至少3个单位，则苏醒。",
+        "type": "属性：食人魔"
+    },
+    {
+        "No.": 162,
+        "faction": "北方领域",
+        "name_cn": "拉多维德",
+        "name_us": "Radovid",
+        "picpath": ":/images/162",
+        "rule": "生成“拉多维德”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 163,
+        "faction": "北方领域",
+        "name_cn": "瑞达尼亚当选骑士",
+        "name_us": "Redanian Knight-Elect",
+        "picpath": ":/images/163",
+        "rule": "己方回合开始时，若受护甲保护，则使相邻单位获得1点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 164,
+        "faction": "怪物",
+        "name_cn": "女夜魔",
+        "name_us": "Succubus",
+        "picpath": ":/images/164",
+        "rule": "若打出在对方战场，则2回合后，己方回合结束时：将同排其他单位中的单个最强单位移至己方战场。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 165,
+        "faction": "中立",
+        "name_cn": "特莉丝·梅莉葛德",
+        "name_us": "Triss Merigold",
+        "picpath": ":/images/165",
+        "rule": "部署：对1个单位造成5点伤害。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 166,
+        "faction": "怪物",
+        "name_cn": "暗影长者",
+        "name_us": "Unseen Elder",
+        "picpath": ":/images/166",
+        "rule": "部署：吞噬3个友军单位，吸收它们的战力为自身的基础战力。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 167,
+        "faction": "怪物",
+        "name_cn": "蜥蜴人战士",
+        "name_us": "Vran Warrior",
+        "picpath": ":/images/167",
+        "rule": "部署：吞噬右侧单位。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 168,
+        "faction": "怪物",
+        "name_cn": "狂猎战士",
+        "name_us": "Wild Hunt Warrior",
+        "picpath": ":/images/168",
+        "rule": "部署：对1个敌军单位造成3点伤害。若摧毁目标，则获得2点增益。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 169,
+        "faction": "怪物",
+        "name_cn": "林精",
+        "name_us": "Woodland Spirit",
+        "picpath": ":/images/169",
+        "rule": "部署：生成3只“暴怒的狼”，并在对方同排降下“蔽日浓雾”。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 170,
+        "faction": "松鼠党",
+        "name_cn": "艾莉瑞恩",
+        "name_us": "Aelirenn",
+        "picpath": ":/images/170",
+        "rule": "当场上有至少5个友军精灵单位时，从牌组打出。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 171,
+        "faction": "怪物",
+        "name_cn": "蟹蜘蛛巨兽",
+        "name_us": "Arachas Behemoth",
+        "picpath": ":/images/171",
+        "rule": "每当有友军单位吞噬1张牌，便生成1只“蟹蜘蛛”，随后受到1点伤害（无视护甲）。",
+        "type": "属性：类虫生物"
+    },
+    {
+        "No.": 172,
+        "faction": "北方领域",
+        "name_cn": "弩炮",
+        "name_us": "Ballista",
+        "picpath": ":/images/172",
+        "rule": "部署：选定1个敌军单位，对它和最多3个与它战力相同的敌军随机单位造成1点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 173,
+        "faction": "北方领域",
+        "name_cn": "血腥男爵",
+        "name_us": "Bloody Baron",
+        "picpath": ":/images/173",
+        "rule": "单局结束时若位于牌组，则移至顶端。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 174,
+        "faction": "北方领域",
+        "name_cn": "蓝衣铁卫斥候",
+        "name_us": "Blue Stripes Scout",
+        "picpath": ":/images/174",
+        "rule": "部署：获得2点护甲。",
+        "type": "属性：蓝衣铁卫"
+    },
+    {
+        "No.": 175,
+        "faction": "史凯利杰",
+        "name_cn": "“阿蓝”卢戈",
+        "name_us": "Blueboy Lugos",
+        "picpath": ":/images/175",
+        "rule": "老兵（1）。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 176,
+        "faction": "史凯利杰",
+        "name_cn": "凯瑞丝",
+        "name_us": "Cerys",
+        "picpath": ":/images/176",
+        "rule": "自身位于墓场时，若有4个单位被复活至己方战场，则复活。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 177,
+        "faction": "怪物",
+        "name_cn": "羊角恶魔",
+        "name_us": "Chort",
+        "picpath": ":/images/177",
+        "rule": "部署，英勇：获得4点强化。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 178,
+        "faction": "史凯利杰",
+        "name_cn": "迪门家族海盗",
+        "name_us": "Clan Dimun Pirate",
+        "picpath": ":/images/178",
+        "rule": "老兵（1）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 179,
+        "faction": "史凯利杰",
+        "name_cn": "图尔希克家族好斗分子",
+        "name_us": "Clan Tuirseach Skirmishers",
+        "picpath": ":/images/179",
+        "rule": "老兵（1）。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 180,
+        "faction": "中立",
+        "name_cn": "克利弗",
+        "name_us": "Cleaver",
+        "picpath": ":/images/180",
+        "rule": "部署：改变1个单位的锁定状态。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 181,
+        "faction": "怪物",
+        "name_cn": "老巫妪：织婆",
+        "name_us": "Crone: Weavess",
+        "picpath": ":/images/181",
+        "rule": "部署：从牌组打出“煮婆”和“呢喃婆”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 182,
+        "faction": "怪物",
+        "name_cn": "老巫妪：呢喃婆",
+        "name_us": "Crone: Whispess",
+        "picpath": ":/images/182",
+        "rule": "部署：从牌组打出“煮婆”和“织婆”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 183,
+        "faction": "怪物",
+        "name_cn": "达冈",
+        "name_us": "Dagon",
+        "picpath": ":/images/183",
+        "rule": "生成“达冈”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 184,
+        "faction": "松鼠党",
+        "name_cn": "多尔·布雷坦纳射手",
+        "name_us": "Dol Blathanna Marksman",
+        "picpath": ":/images/184",
+        "rule": "被移动时对1个敌军随机单位造成2点伤害。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 185,
+        "faction": "松鼠党",
+        "name_cn": "多尔·布雷坦纳诱捕者",
+        "name_us": "Dol Blathanna Trapper",
+        "picpath": ":/images/185",
+        "rule": "部署：在对方战场生成1个“火球陷阱”。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 186,
+        "faction": "史凯利杰",
+        "name_cn": "多纳·辛达",
+        "name_us": "Donar an Hindar",
+        "picpath": ":/images/186",
+        "rule": "老兵（1）。",
+        "type": "站位：远程"
+    },
+    {
+        "No.": 187,
+        "faction": "松鼠党",
+        "name_cn": "矮人佣兵",
+        "name_us": "Dwarven Mercenary",
+        "picpath": ":/images/187",
+        "rule": "部署：将1个其他排的单位移至它所在战场的同排。若为友军单位，则使它获得3点增益。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 188,
+        "faction": "怪物",
+        "name_cn": "土元素",
+        "name_us": "Earth Elemental",
+        "picpath": ":/images/188",
+        "rule": "部署：获得护盾。",
+        "type": "属性：构造体"
+    },
+    {
+        "No.": 189,
+        "faction": "尼弗迦德",
+        "name_cn": "恩希尔·恩瑞斯",
+        "name_us": "Emhyr var Emreis",
+        "picpath": ":/images/189",
+        "rule": "生成“恩希尔·恩瑞斯”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 190,
+        "faction": "尼弗迦德",
+        "name_cn": "冒牌希里",
+        "name_us": "Fake Ciri",
+        "picpath": ":/images/190",
+        "rule": "己方回合开始时，若被视为间谍单位，则获得1点增益。对方放弃跟牌时：若仍被视为间谍单位，则返回己方战场。",
+        "type": "站位：任意/忠诚/不忠诚"
+    },
+    {
+        "No.": 191,
+        "faction": "尼弗迦德",
+        "name_cn": "火蝎攻城弩",
+        "name_us": "Fire Scorpion",
+        "picpath": ":/images/191",
+        "rule": "被揭示时对1个敌军随机单位造成3点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 192,
+        "faction": "松鼠党",
+        "name_cn": "法兰茜丝卡",
+        "name_us": "Francesca",
+        "picpath": ":/images/192",
+        "rule": "生成“法兰茜丝卡”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 193,
+        "faction": "尼弗迦德",
+        "name_cn": "芙琳吉拉·薇歌",
+        "name_us": "Fringilla Vigo",
+        "picpath": ":/images/193",
+        "rule": "部署：若被视为间谍牌，则将自身基础战力设为1。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 194,
+        "faction": "松鼠党",
+        "name_cn": "私枭后援者",
+        "name_us": "Hawker Support",
+        "picpath": ":/images/194",
+        "rule": "部署：使手牌中1张单位牌获得3点增益。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 195,
+        "faction": "尼弗迦德",
+        "name_cn": "近卫军",
+        "name_us": "Impera Brigade",
+        "picpath": ":/images/195",
+        "rule": "己方打出间谍单位（含金色牌）时获得2点增益。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 196,
+        "faction": "松鼠党",
+        "name_cn": "伊欧菲斯",
+        "name_us": "Iorveth",
+        "picpath": ":/images/196",
+        "rule": "每有1个敌军单位被移动位置，便对它造成2点伤害。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 197,
+        "faction": "怪物",
+        "name_cn": "约顿",
+        "name_us": "Jotunn",
+        "picpath": ":/images/197",
+        "rule": "部署：将3个敌军相邻单位移至对方战场同排，并对它们造成2点伤害。",
+        "type": "属性：食人魔"
+    },
+    {
+        "No.": 198,
+        "faction": "尼弗迦德",
+        "name_cn": "雷欧·邦纳特",
+        "name_us": "Leo Bonhart",
+        "picpath": ":/images/198",
+        "rule": "部署：揭示己方手牌中1张单位牌（含金色牌），并对1个敌军单位造成数值等同于被揭示卡牌基础战力的伤害。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 199,
+        "faction": "尼弗迦德",
+        "name_cn": "投石车",
+        "name_us": "Mangonel",
+        "picpath": ":/images/199",
+        "rule": "每有1张卡牌被揭示，便对1个敌军随机单位造成2点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 200,
+        "faction": "松鼠党",
+        "name_cn": "莫丽恩",
+        "name_us": "Morenn",
+        "picpath": ":/images/200",
+        "rule": "伏击：在下个敌军单位被打出时、其部署能力结算前翻开，对它造成5点伤害。",
+        "type": "属性：树精，伏击"
+    },
+    {
+        "No.": 201,
+        "faction": "尼弗迦德",
+        "name_cn": "莫尔凡·沃里斯",
+        "name_us": "Morvran Voorhis",
+        "picpath": ":/images/201",
+        "rule": "生成“莫尔凡・沃里斯”。",
+        "type": "复制名称到剪贴板"
+    },
+    {
+        "No.": 202,
+        "faction": "中立",
+        "name_cn": "奥克维斯特",
+        "name_us": "Ocvist",
+        "picpath": ":/images/202",
+        "rule": "4回合后，己方回合开始时：对敌军所有单位造成1点伤害，然后收回手牌并转变为“精疲力竭的奥克维斯特”。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 203,
+        "faction": "史凯利杰",
+        "name_cn": "暴怒的狂战士",
+        "name_us": "Raging Berserker",
+        "picpath": ":/images/203",
+        "rule": "复仇：转变为“狂暴的熊”。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 204,
+        "faction": "北方领域",
+        "name_cn": "瑞达尼亚精锐",
+        "name_us": "Redanian Elite",
+        "picpath": ":/images/204",
+        "rule": "每当护甲降为0时，获得5点增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 205,
+        "faction": "北方领域",
+        "name_cn": "瑞达尼亚骑士",
+        "name_us": "Redanian Knight",
+        "picpath": ":/images/205",
+        "rule": "每当己方回合开始时，若不受护甲保护，则获得2点增益和2点护甲。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 206,
+        "faction": "中立",
+        "name_cn": "雷吉斯：高等吸血鬼",
+        "name_us": "Regis: Higher Vampire",
+        "picpath": ":/images/206",
+        "rule": "部署：检视对方牌组随机3张铜色单位牌。选择1张吞噬，获得等同于其基础战力的增益，然后洗回其他卡牌。",
+        "type": "属性：吸血鬼"
+    },
+    {
+        "No.": 207,
+        "faction": "北方领域",
+        "name_cn": "加强型弩炮",
+        "name_us": "Reinforced Ballista",
+        "picpath": ":/images/207",
+        "rule": "部署：对1个敌军单位造成2点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 208,
+        "faction": "北方领域",
+        "name_cn": "加强型攻城塔",
+        "name_us": "Reinforced Siege Tower",
+        "picpath": ":/images/208",
+        "rule": "部署：使相邻单位获得2点护甲。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 209,
+        "faction": "北方领域",
+        "name_cn": "加强型拋石机",
+        "name_us": "Reinforced Trebuchet",
+        "picpath": ":/images/209",
+        "rule": "每当己方回合开始时，对1个敌军随机单位造成1点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 210,
+        "faction": "尼弗迦德",
+        "name_cn": "投尸机",
+        "name_us": "Rot Tosser",
+        "picpath": ":/images/210",
+        "rule": "部署：在对方战场生成1个“牛尸”。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 211,
+        "faction": "北方领域",
+        "name_cn": "席尔·坦沙维耶",
+        "name_us": "Síle de Tansarville",
+        "picpath": ":/images/211",
+        "rule": "部署：可选择从手牌打出1张铜色特殊牌。若执行，则从牌组顶端抽1张牌。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 212,
+        "faction": "史凯利杰",
+        "name_cn": "史凯裘",
+        "name_us": "Skjall",
+        "picpath": ":/images/212",
+        "rule": "老兵（1）。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 213,
+        "faction": "史凯利杰",
+        "name_cn": "斯凡瑞吉",
+        "name_us": "Svanrige",
+        "picpath": ":/images/213",
+        "rule": "老兵（1）。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 214,
+        "faction": "松鼠党",
+        "name_cn": "托露薇尔",
+        "name_us": "Toruviel",
+        "picpath": ":/images/214",
+        "rule": "伏击：对方放弃跟牌后翻开，使左右各2格内的单位获得2点增益。",
+        "type": "属性：伏击，精灵"
+    },
+    {
+        "No.": 215,
+        "faction": "史凯利杰",
+        "name_cn": "维伯约恩",
+        "name_us": "Vabjorn",
+        "picpath": ":/images/215",
+        "rule": "每当己方回合结束时，对战力不高于2的受伤敌军单位造成2点伤害。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 216,
+        "faction": "北方领域",
+        "name_cn": "弗农·罗契",
+        "name_us": "Vernon Roche",
+        "picpath": ":/images/216",
+        "rule": "部署：对1个敌军单位造成3点伤害。若它被摧毁，则在随机位置生成1个“蓝衣铁卫突击队”，并再次触发部署能力（仅限一次）。",
+        "type": "属性：蓝衣铁卫"
+    },
+    {
+        "No.": 217,
+        "faction": "松鼠党",
+        "name_cn": "维里赫德旅",
+        "name_us": "Vrihedd Brigade",
+        "picpath": ":/images/217",
+        "rule": "部署：移除所在排的天气效果，并将1个单位移至它所在战场的同一排。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 218,
+        "faction": "松鼠党",
+        "name_cn": "维里赫德旅骑兵",
+        "name_us": "Vrihedd Dragoon",
+        "picpath": ":/images/218",
+        "rule": "每当己方回合开始时，使手牌中1张随机忠诚单位牌获得1点增益。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 219,
+        "faction": "史凯利杰",
+        "name_cn": "作战长船",
+        "name_us": "War Longship",
+        "picpath": ":/images/219",
+        "rule": "己方每丢弃1张单位牌，便对1个敌军随机单位造成2点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 220,
+        "faction": "史凯利杰",
+        "name_cn": "海之野猪",
+        "name_us": "Wild Boar of the Sea",
+        "picpath": ":/images/220",
+        "rule": "每当己方回合开始时，使左侧单位获得1点强化，右侧单位受到1点伤害。",
+        "type": "属性：机械"
+    },
+    {
+        "No.": 221,
+        "faction": "怪物",
+        "name_cn": "狂猎骑士",
+        "name_us": "Wild Hunt Rider",
+        "picpath": ":/images/221",
+        "rule": "若此局战败，则留在战场上。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 222,
+        "faction": "怪物",
+        "name_cn": "翼手龙",
+        "name_us": "Wyvern",
+        "picpath": ":/images/222",
+        "rule": "部署：对1个敌军单位造成3点伤害。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 223,
+        "faction": "中立",
+        "name_cn": "叶奈法",
+        "name_us": "Yennefer",
+        "picpath": ":/images/223",
+        "rule": "部署：生成“独角兽”或“梦魇独角兽”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 224,
+        "faction": "怪物",
+        "name_cn": "远古小雾妖",
+        "name_us": "Ancient Foglet",
+        "picpath": ":/images/224",
+        "rule": "每当己方回合开始时，若场上存在“蔽日浓雾”，则获得1点增益。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 225,
+        "faction": "怪物",
+        "name_cn": "大狮鹫",
+        "name_us": "Archgriffin",
+        "picpath": ":/images/225",
+        "rule": "部署：移除所在排的天气效果。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 226,
+        "faction": "史凯利杰",
+        "name_cn": "奎特家族战吼者",
+        "name_us": "Clan an Craite Warcrier",
+        "picpath": ":/images/226",
+        "rule": "老兵（1）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 227,
+        "faction": "松鼠党",
+        "name_cn": "突击队新兵",
+        "name_us": "Commando Neophyte",
+        "picpath": ":/images/227",
+        "rule": "己方每调度1张牌，便对1个敌军随机单位造成2点伤害。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 228,
+        "faction": "中立",
+        "name_cn": "赛浦利安·威利",
+        "name_us": "Cyprian Wiley",
+        "picpath": ":/images/228",
+        "rule": "部署：对1个敌军单位造成3点丢弃；或选择摧毁1张伏击牌。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 229,
+        "faction": "怪物",
+        "name_cn": "战灵",
+        "name_us": "Draug",
+        "picpath": ":/images/229",
+        "rule": "部署：对1个敌军随机单位造成1点伤害（无视护甲），该效果会触发6次。",
+        "type": "属性：恶灵"
+    },
+    {
+        "No.": 230,
+        "faction": "史凯利杰",
+        "name_cn": "尔米恩",
+        "name_us": "Ermion",
+        "picpath": ":/images/230",
+        "rule": "部署：从牌组顶端抽2张牌，随后丢弃2张手牌（含金色牌）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 231,
+        "faction": "怪物",
+        "name_cn": "火元素",
+        "name_us": "Fire Elemental",
+        "picpath": ":/images/231",
+        "rule": "部署：生成3个“次级火元素”。",
+        "type": "属性：构造体"
+    },
+    {
+        "No.": 232,
+        "faction": "松鼠党",
+        "name_cn": "伊森格林",
+        "name_us": "Isengrim",
+        "picpath": ":/images/232",
+        "rule": "从牌组打出1张铜色/银色伏击牌。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 233,
+        "faction": "中立",
+        "name_cn": "乔尼",
+        "name_us": "Johnny",
+        "picpath": ":/images/233",
+        "rule": "部署：丢弃1张手牌（含金色牌），随后在手牌中创建1张对方牌组中相同颜色卡牌的同名牌。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 234,
+        "faction": "尼弗迦德",
+        "name_cn": "古雷特的雷索",
+        "name_us": "Letho of Gulet",
+        "picpath": ":/images/234",
+        "rule": "部署：若被视为间谍牌，则将自身基础战力设为1。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 235,
+        "faction": "史凯利杰",
+        "name_cn": "“疯子”卢戈",
+        "name_us": "Madman Lugos",
+        "picpath": ":/images/235",
+        "rule": "部署：从牌组丢弃1张铜色单位牌。对1个单位造成数值等同于被丢弃单位基础战力的伤害。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 236,
+        "faction": "怪物",
+        "name_cn": "尼斯里拉",
+        "name_us": "Nithral",
+        "picpath": ":/images/236",
+        "rule": "对方战场上的“刺骨冰霜”伤害提升至3点。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 237,
+        "faction": "中立",
+        "name_cn": "操作者",
+        "name_us": "Operator",
+        "picpath": ":/images/237",
+        "rule": "部署：选择手牌中1张铜色单位牌，在双方手牌中各创造1张它的基础同名牌。",
+        "type": "属性：法师，坚守，佚亡"
+    },
+    {
+        "No.": 238,
+        "faction": "北方领域",
+        "name_cn": "帕薇塔",
+        "name_us": "Pavetta",
+        "picpath": ":/images/238",
+        "rule": "部署：若双方均未放弃跟牌，则将双方最弱的单位洗回各自牌组（“帕薇塔”除外）。",
+        "type": "属性：法师，佚亡"
+    },
+    {
+        "No.": 239,
+        "faction": "北方领域",
+        "name_cn": "斯坦尼斯王子",
+        "name_us": "Prince Stennis",
+        "picpath": ":/images/239",
+        "rule": "每2回合，己方回合开始时，获得等同于友军机械单位数量的增益。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 240,
+        "faction": "松鼠党",
+        "name_cn": "萨琪亚",
+        "name_us": "Saskia",
+        "picpath": ":/images/240",
+        "rule": "指令：从牌组打出至随机位置。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 241,
+        "faction": "史凯利杰",
+        "name_cn": "恶熊",
+        "name_us": "Savage Bear",
+        "picpath": ":/images/241",
+        "rule": "对后续打出的敌军单位（仅限手牌，含己方间谍），在其部署能力结算后，对它造成1点伤害。",
+        "type": "属性：诅咒生物，野兽"
+    },
+    {
+        "No.": 242,
+        "faction": "怪物",
+        "name_cn": "阴影",
+        "name_us": "Shadow",
+        "picpath": ":/images/242",
+        "rule": "部署：触发右侧3个单位的遗愿能力。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 243,
+        "faction": "尼弗迦德",
+        "name_cn": "斯维尔",
+        "name_us": "Sweers",
+        "picpath": ":/images/243",
+        "rule": "部署：选择1个敌军单位或对方手牌中1张被揭示的单位牌，将它在对方牌组中所有的同名牌置入其墓场。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 244,
+        "faction": "中立",
+        "name_cn": "特莉丝：蝴蝶咒语",
+        "name_us": "Triss: Butterfly Spell",
+        "picpath": ":/images/244",
+        "rule": "每当己方回合开始时，使除自身外的所有最弱友军单位获得1点增益。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 245,
+        "faction": "北方领域",
+        "name_cn": "薇丝",
+        "name_us": "Ves",
+        "picpath": ":/images/245",
+        "rule": "己方达成北方领域联军条件时从牌组中打出。",
+        "type": "属性：蓝衣铁卫"
+    },
+    {
+        "No.": 246,
+        "faction": "中立",
+        "name_cn": "维瑟米尔",
+        "name_us": "Vesemir",
+        "picpath": ":/images/246",
+        "rule": "部署：从牌组打出“艾斯凯尔”和“兰伯特”。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 247,
+        "faction": "松鼠党",
+        "name_cn": "维里赫德旅军官",
+        "name_us": "Vrihedd Officer",
+        "picpath": ":/images/247",
+        "rule": "部署：调度1张牌。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 248,
+        "faction": "松鼠党",
+        "name_cn": "亚尔潘·齐格林",
+        "name_us": "Yarpen Zigrin",
+        "picpath": ":/images/248",
+        "rule": "每有1个友军矮人单位（含金色牌）被打出，获得1点增益。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 249,
+        "faction": "松鼠党",
+        "name_cn": "卓尔坦·齐瓦",
+        "name_us": "Zoltan Chivay",
+        "picpath": ":/images/249",
+        "rule": "部署：将3个单位移至各自战场的此排。若它们为友军，则使它们获得2点强化。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 250,
+        "faction": "尼弗迦德",
+        "name_cn": "阿尔巴矛兵",
+        "name_us": "Alba Spearmen",
+        "picpath": ":/images/250",
+        "rule": "部署：获得护盾。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 251,
+        "faction": "尼弗迦德",
+        "name_cn": "炼金术士",
+        "name_us": "Alchemist",
+        "picpath": ":/images/251",
+        "rule": "部署：揭示1张牌。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 252,
+        "faction": "中立",
+        "name_cn": "阿瓦拉克",
+        "name_us": "Avallac'h",
+        "picpath": ":/images/252",
+        "rule": "部署：若双方均未放弃跟牌，则各从牌组顶端抽2张牌。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 253,
+        "faction": "史凯利杰",
+        "name_cn": "狂战士掠夺者",
+        "name_us": "Berserker Marauder",
+        "picpath": ":/images/253",
+        "rule": "部署：场上每有1个受伤的友军单位（含金色牌），便获得1点强化，然后受到1点伤害。",
+        "type": "属性：诅咒生物，衰退"
+    },
+    {
+        "No.": 254,
+        "faction": "尼弗迦德",
+        "name_cn": "契拉克",
+        "name_us": "Ceallach",
+        "picpath": ":/images/254",
+        "rule": "部署：将2个敌军铜色间谍单位召回己方战场。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 255,
+        "faction": "松鼠党",
+        "name_cn": "席朗",
+        "name_us": "Ciaran",
+        "picpath": ":/images/255",
+        "rule": "部署：改变1个单位的锁定状态，并把它移动至其所在战场的同排。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 256,
+        "faction": "怪物",
+        "name_cn": "老巫妪：煮婆",
+        "name_us": "Crone: Brewess",
+        "picpath": ":/images/256",
+        "rule": "部署：从牌组打出“呢喃婆”和“织婆”。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 257,
+        "faction": "北方领域",
+        "name_cn": "丹德里恩",
+        "name_us": "Dandelion",
+        "picpath": ":/images/257",
+        "rule": "部署：使牌组最多3个铜色/银色单位获得3点增益，随后重洗牌组。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 258,
+        "faction": "松鼠党",
+        "name_cn": "丹尼斯·克兰默",
+        "name_us": "Dennis Cranmer",
+        "picpath": ":/images/258",
+        "rule": "部署：使位于己方牌组、手牌或战场的所有其他铜色和银色矮人单位获得1点强化。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 259,
+        "faction": "史凯利杰",
+        "name_cn": "邓戈·费特",
+        "name_us": "Djenge Frett",
+        "picpath": ":/images/259",
+        "rule": "老兵（1）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 260,
+        "faction": "怪物",
+        "name_cn": "水鬼",
+        "name_us": "Drowner",
+        "picpath": ":/images/260",
+        "rule": "部署：将1个单位拖至它所在战场的同排。",
+        "type": "属性：食腐生物"
+    },
+    {
+        "No.": 261,
+        "faction": "中立",
+        "name_cn": "杰洛特：阿尔德法印",
+        "name_us": "Geralt: Aard",
+        "picpath": ":/images/261",
+        "rule": "部署：将敌军5个相邻单位上移1排，并对它们造成2点伤害。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 262,
+        "faction": "怪物",
+        "name_cn": "狮鹫",
+        "name_us": "Griffin",
+        "picpath": ":/images/262",
+        "rule": "部署：从一方墓场中将1张牌置入另一方墓场。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 263,
+        "faction": "怪物",
+        "name_cn": "依勒瑞斯",
+        "name_us": "Imlerith",
+        "picpath": ":/images/263",
+        "rule": "部署：对1个敌军单位造成4点伤害，若目标受“刺骨冰霜”影响，则伤害变为8点。",
+        "type": "属性：狂猎"
+    },
+    {
+        "No.": 264,
+        "faction": "尼弗迦德",
+        "name_cn": "近卫军执行者",
+        "name_us": "Impera Enforcers",
+        "picpath": ":/images/264",
+        "rule": "部署：检视牌组顶端的卡牌。若为铜色牌，自身获得2点护甲；若为银色牌，自身获得1点增益；若为金色牌，晋升自身。",
+        "type": "站位：远程/忠诚"
+    },
+    {
+        "No.": 265,
+        "faction": "北方领域",
+        "name_cn": "约翰·纳塔利斯",
+        "name_us": "John Natalis",
+        "picpath": ":/images/265",
+        "rule": "部署：使友军所有北方领域机械单位对1个敌军随机单位造成2点伤害。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 266,
+        "faction": "怪物",
+        "name_cn": "章鱼巨兽",
+        "name_us": "Kayran",
+        "picpath": ":/images/266",
+        "rule": "部署：吞噬手牌中1张单位牌，并获得额外8点增益。",
+        "type": "属性：类虫生物"
+    },
+    {
+        "No.": 267,
+        "faction": "尼弗迦德",
+        "name_cn": "门诺·库霍恩",
+        "name_us": "Menno Coehoorn",
+        "picpath": ":/images/267",
+        "rule": "部署：摧毁所有敌军间谍单位。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 268,
+        "faction": "北方领域",
+        "name_cn": "南娜卡",
+        "name_us": "Nenneke",
+        "picpath": ":/images/268",
+        "rule": "部署：将墓场最多3张牌洗回牌组。",
+        "type": "站位：攻城/忠诚"
+    },
+    {
+        "No.": 269,
+        "faction": "中立",
+        "name_cn": "雷吉斯",
+        "name_us": "Regis",
+        "picpath": ":/images/269",
+        "rule": "2回合后，己方回合开始时：若己方处于胜势，获得7点增益。",
+        "type": "属性：吸血鬼"
+    },
+    {
+        "No.": 270,
+        "faction": "中立",
+        "name_cn": "莎拉",
+        "name_us": "Sarah",
+        "picpath": ":/images/270",
+        "rule": "部署：将1张手牌（含金色牌）洗回牌组，随后从牌组顶端抽1张相同颜色的非同名卡牌。",
+        "type": "属性：残物"
+    },
+    {
+        "No.": 271,
+        "faction": "松鼠党",
+        "name_cn": "谢尔顿·史卡格",
+        "name_us": "Sheldon Skaggs",
+        "picpath": ":/images/271",
+        "rule": "部署：将同排所有单位移至所在战场随机排。每移动1个单位，便获得1点增益。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 272,
+        "faction": "尼弗迦德",
+        "name_cn": "蒂博尔·艾格布拉杰",
+        "name_us": "Tibor Eggebracht",
+        "picpath": ":/images/272",
+        "rule": "部署：若双方均未放弃跟牌，则获得15点增益，随后对方从牌组顶端抽1张铜色牌，并揭示它。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 273,
+        "faction": "北方领域",
+        "name_cn": "崔丹姆步兵",
+        "name_us": "Tridam Infantryman",
+        "picpath": ":/images/273",
+        "rule": "部署：获得3点护甲。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 274,
+        "faction": "北方领域",
+        "name_cn": "巨魔魔",
+        "name_us": "Trollololo",
+        "picpath": ":/images/274",
+        "rule": "可被视作同排任意北方领域联军单位。",
+        "type": "属性：食人魔"
+    },
+    {
+        "No.": 275,
+        "faction": "尼弗迦德",
+        "name_cn": "瓦提尔·迪·李道克斯",
+        "name_us": "Vattier de Rideaux",
+        "picpath": ":/images/275",
+        "rule": "部署：揭示最多2张己方手牌（含金色牌）。每揭示1张，便揭示1张对方手牌（含金色牌）。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 276,
+        "faction": "尼弗迦德",
+        "name_cn": "威尔吉佛兹",
+        "name_us": "Vilgefortz",
+        "picpath": ":/images/276",
+        "rule": "部署：摧毁1个友军单位，随后从牌组顶端打出1张牌；若对方未放弃跟牌，也可选择摧毁1个敌军单位，随后对方从牌组顶端抽1张铜色牌并揭示它。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 277,
+        "faction": "中立",
+        "name_cn": "维兰特雷坦梅斯",
+        "name_us": "Villentretenmerth",
+        "picpath": ":/images/277",
+        "rule": "3回合后，己方回合开始时：摧毁场上所有最强的单位。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 278,
+        "faction": "松鼠党",
+        "name_cn": "维里赫德旅工兵",
+        "name_us": "Vrihedd Sappers",
+        "picpath": ":/images/278",
+        "rule": "伏击：2回合后，在己方回合开始时翻开。",
+        "type": "属性：精灵，伏击"
+    },
+    {
+        "No.": 279,
+        "faction": "中立",
+        "name_cn": "卓尔坦：驯兽师",
+        "name_us": "Zoltan: Animal Tamer",
+        "picpath": ":/images/279",
+        "rule": "部署：生成“杜达元帅：伙伴”或“杜达元帅：捣蛋鬼”。",
+        "type": "属性：矮人"
+    },
+    {
+        "No.": 280,
+        "faction": "尼弗迦德",
+        "name_cn": "奥伯里奇",
+        "name_us": "Albrich",
+        "picpath": ":/images/280",
+        "rule": "部署：若双方均未放弃跟牌，则各从牌组顶端抽1张牌。对方抽到的牌将被揭示。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 281,
+        "faction": "怪物",
+        "name_cn": "卡兰希尔",
+        "name_us": "Caranthir",
+        "picpath": ":/images/281",
+        "rule": "部署：将3个敌军单位移至对方同排，并在此排降下“刺骨冰霜”。",
+        "type": "属性：狂猎，法师"
+    },
+    {
+        "No.": 282,
+        "faction": "中立",
+        "name_cn": "希里：冲刺",
+        "name_us": "Ciri: Dash",
+        "picpath": ":/images/282",
+        "rule": "被置入墓场时获得3点强化并洗回牌组。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 283,
+        "faction": "史凯利杰",
+        "name_cn": "奎特家族战士",
+        "name_us": "Clan an Craite Warrior",
+        "picpath": ":/images/283",
+        "rule": "老兵（1）。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 284,
+        "faction": "松鼠党",
+        "name_cn": "艾雷亚斯",
+        "name_us": "Ele'yas",
+        "picpath": ":/images/284",
+        "rule": "部署：摧毁1个友军单位，对1个敌军单位造成数值等同于被摧毁友军单位战力的伤害。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 285,
+        "faction": "怪物",
+        "name_cn": "蝎尾狮",
+        "name_us": "Manticore",
+        "picpath": ":/images/285",
+        "rule": "部署，英勇：获得4点强化。",
+        "type": "属性：野兽"
+    },
+    {
+        "No.": 286,
+        "faction": "松鼠党",
+        "name_cn": "米尔瓦",
+        "name_us": "Milva",
+        "picpath": ":/images/286",
+        "rule": "部署：若双方均未放弃跟牌，则将双方最强的单位收回各自手牌。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 287,
+        "faction": "史凯利杰",
+        "name_cn": "莫克瓦格",
+        "name_us": "Morkvarg",
+        "picpath": ":/images/287",
+        "rule": "被丢弃或摧毁时复活，但丢弃自身一半战力（向上取整）。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 288,
+        "faction": "中立",
+        "name_cn": "欧吉尔德",
+        "name_us": "Olgierd",
+        "picpath": ":/images/288",
+        "rule": "被丢弃或摧毁时丢弃自身一半战力（向上取整）。若在第二局和第三局开始时位于墓场，则复活自身。",
+        "type": "属性：诅咒生物"
+    },
+    {
+        "No.": 289,
+        "faction": "松鼠党",
+        "name_cn": "萨琪亚萨司",
+        "name_us": "Saesenthessis",
+        "picpath": ":/images/289",
+        "rule": "部署：场上每有1个友军矮人单位（含金色牌），便获得1点增益。",
+        "type": "属性：龙兽"
+    },
+    {
+        "No.": 290,
+        "faction": "尼弗迦德",
+        "name_cn": "瑟瑞特",
+        "name_us": "Serrit",
+        "picpath": ":/images/290",
+        "rule": "部署：使对方手牌中1张被揭示的单位牌战力变为1点。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 291,
+        "faction": "松鼠党",
+        "name_cn": "艾格蕾斯",
+        "name_us": "Aglaïs",
+        "picpath": ":/images/291",
+        "rule": "部署：可选择从对方墓场复活1张特殊牌。若执行，则受到4点丢弃。",
+        "type": "属性：树精"
+    },
+    {
+        "No.": 292,
+        "faction": "尼弗迦德",
+        "name_cn": "艾希蕾·阿纳辛",
+        "name_us": "Assire var Anahid",
+        "picpath": ":/images/292",
+        "rule": "部署：将双方墓场中最多2张牌洗回各自牌组。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 293,
+        "faction": "尼弗迦德",
+        "name_cn": "坎特蕾拉",
+        "name_us": "Cantarella",
+        "picpath": ":/images/293",
+        "rule": "部署：从牌组顶端抽1张牌。可选择将其保留，或置于牌组底端后再从牌组顶端抽1张牌。",
+        "type": "属性：佚亡，坚守"
+    },
+    {
+        "No.": 294,
+        "faction": "怪物",
+        "name_cn": "畏惧者",
+        "name_us": "Frightener",
+        "picpath": ":/images/294",
+        "rule": "部署：从牌组顶端抽1张牌。将所在战场其他排的1个单位移至自身的同一排。",
+        "type": "属性：构造体，佚亡"
+    },
+    {
+        "No.": 295,
+        "faction": "中立",
+        "name_cn": "杰洛特",
+        "name_us": "Geralt",
+        "picpath": ":/images/295",
+        "rule": "部署，英勇：获得3点强化。",
+        "type": "属性：猎魔人"
+    },
+    {
+        "No.": 296,
+        "faction": "尼弗迦德",
+        "name_cn": "尼弗迦德骑士",
+        "name_us": "Nilfgaardian Knight",
+        "picpath": ":/images/296",
+        "rule": "部署：获得2点护甲。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 297,
+        "faction": "松鼠党",
+        "name_cn": "希鲁",
+        "name_us": "Schirrú",
+        "picpath": ":/images/297",
+        "rule": "部署：可选择将1张手牌（含金色牌）转变为“烧灼”。",
+        "type": "属性：精灵"
+    },
+    {
+        "No.": 298,
+        "faction": "尼弗迦德",
+        "name_cn": "斯蒂芬·史凯伦",
+        "name_us": "Stefan Skellen",
+        "picpath": ":/images/298",
+        "rule": "部署：检视牌组，选择1张牌置于牌组顶端，然后重洗牌组中剩余卡牌。",
+        "type": "站位：任意/忠诚"
+    },
+    {
+        "No.": 299,
+        "faction": "尼弗迦德",
+        "name_cn": "守卫者魔像",
+        "name_us": "The Guardian",
+        "picpath": ":/images/299",
+        "rule": "遗愿：在对方牌组顶端创造2个“次级守卫者魔像”。",
+        "type": "属性：构造体"
+    },
+    {
+        "No.": 300,
+        "faction": "尼弗迦德",
+        "name_cn": "沙斯希乌斯",
+        "name_us": "Xarthisius",
+        "picpath": ":/images/300",
+        "rule": "部署：检视对方牌组顶端3张牌，将其中1张置于其牌组底端（含金色牌）。",
+        "type": "属性：法师"
+    },
+    {
+        "No.": 301,
+        "faction": "北方领域",
+        "name_cn": "塔勒",
+        "name_us": "Thaler",
+        "picpath": ":/images/301",
+        "rule": "部署：从牌组顶端抽2张牌。保留1张，洗回另1张。",
+        "type": "属性：佚亡，坚守"
+    },
+    {
+        "No.": 302,
+        "faction": "史凯利杰",
+        "name_cn": "茱塔·迪门",
+        "name_us": "Jutta an Dimun",
+        "picpath": ":/images/302",
+        "rule": "老兵（1）。",
+        "type": "站位：近战/忠诚"
+    },
+    {
+        "No.": 303,
+        "faction": "史凯利杰",
+        "name_cn": "乌达瑞克",
+        "name_us": "Udalryk",
+        "picpath": ":/images/303",
+        "rule": "部署：从牌组顶端抽2张牌。保留1张，丢弃另1张。",
+        "type": "属性：诅咒生物，佚亡"
+    },
+    {
+        "No.": 304,
+        "faction": "松鼠党",
+        "name_cn": "亚伊文",
+        "name_us": "Yaevinn",
+        "picpath": ":/images/304",
+        "rule": "部署：从牌组顶各端抽1张单位牌和特殊牌。保留1张，洗回另1张。",
+        "type": "属性：精灵，佚亡"
+    },
+    {
+        "No.": 305,
+        "faction": "史凯利杰",
+        "name_cn": "哈尔玛",
+        "name_us": "Hjalmar",
+        "picpath": ":/images/305",
+        "rule": "部署：在对方同排最左侧生成“乌德维克之主”。",
+        "type": "站位：任意/忠诚"
+    }
+]
