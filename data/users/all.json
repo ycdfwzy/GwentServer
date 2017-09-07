@@ -1,1 +1,12 @@
-[{"status": "Offline", "username": "123", "password": "123"}, {"status": "Offline", "username": "ycdfwzy", "password": "yecwzy"}]
+[
+    {
+        "password": "123",
+        "status": "Offline",
+        "username": "123"
+    },
+    {
+        "password": "321",
+        "status": "Offline",
+        "username": "321"
+    }
+]

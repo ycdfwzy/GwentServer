@@ -70,7 +70,7 @@ void gameServer::client_Disconnected(MyTCPSocket *client){
 }
 
 void gameServer::checklogin(MyTCPSocket *client, QString username, QString password){
-    //qDebug() << "checklogin:" << username << password;
+    qDebug() << "checklogin:" << username << password;
     QFile file("D:\\git\\GwentServer\\data\\users\\all.json");
     if (file.open(QFile::ReadOnly)){
         bool flag = false;
@@ -104,20 +104,26 @@ void gameServer::checklogin(MyTCPSocket *client, QString username, QString passw
             server->Send_Data(client, "Sorry!");
         } else
         {
-
             QJsonDocument jd = QJsonDocument::fromVariant(all);
             if (!jd.isNull() && file.open(QFile::WriteOnly | QFile::Truncate)){
                 QTextStream out(&file);
                 out.setCodec("UTF-8");
-                //qDebug() << jd.toJson();
                 out << jd.toJson();
                 file.close();
             }
             server->Send_Data(client, "Welcome!");
-
-            client->addplayer(username);
+            //client->addplayer(username);
 
             //send user data
+            QString dir_path = "D:\\git\\GwentServer\\data\\users\\" + username + ".json";
+            QFile userinfo(dir_path);
+            if (userinfo.open(QFile::ReadOnly)){
+                QString msg = userinfo.readAll();
+                //qDebug() << msg;
+                client->addplayer(msg);
+                msg = "Data:" + msg;
+                server->Send_Data(client, msg);
+            }
         }
     }
 }

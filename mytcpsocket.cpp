@@ -16,8 +16,8 @@ void MyTCPSocket::emitdisconnect(){
     emit Disconnect(this);
 }
 
-void MyTCPSocket::addplayer(QString name){
-    player = new Player(this, name);
+void MyTCPSocket::addplayer(QString Alldata){
+    player = new Player(this, Alldata);
 }
 
 void MyTCPSocket::deleteplayer(){

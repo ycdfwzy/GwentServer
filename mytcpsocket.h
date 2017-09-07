@@ -17,7 +17,7 @@ public:
 
     Player *player;
 
-    void addplayer(QString name);
+    void addplayer(QString Alldata);
     void deleteplayer();
 
 signals:
