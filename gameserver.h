@@ -15,6 +15,7 @@
 #include <QFile>
 #include "mytcpsocket.h"
 #include "mytcpserver.h"
+#include "player.h"
 
 class gameServer : public QObject
 {

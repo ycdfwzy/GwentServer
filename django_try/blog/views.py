@@ -38,9 +38,9 @@ def register(request):
             json.dump(fileJson, file)
             file.close()
             
-            cards = [16, 8, 19, 17, 7, 57, 66, 75, 169, 188, 181, 182, 256, 225, 236, 281, 63]
-            decks = {"deckname": "stater", "leader": 183, "cards": cards}
-            decks = [decks]
+            cards = [16,8,18,41,19,17,10,7,101,57,58,66,75,169,188,181,182,256,225,236,281,294,63,167,171]
+            decks = {"leader": 183, "cards": cards}
+            decks = {"stater": decks}
             usr = {"name": username, "totalgames": 0, "victorygames": 0, "drawgames": 0, "defeatgames": 0, "decks": decks}
             path_dir = "D:\\git\\GwentServer\\data\\users\\" + username + ".json";
             file = open(path_dir, "w")

@@ -1,17 +1,40 @@
-#ifndef CARDS_CARD_H
-#define CARDS_CARD_H
+#ifndef CARD_H
+#define CARD_H
 
-#include <QString>
 #include <QObject>
+#include <QJsonArray>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonParseError>
+#include <QJsonValue>
 
-class card : public QObject{
+class Card : public QObject
+{
     Q_OBJECT
 public:
-    card(int num, QObject *parent = nullptr);
-    QString name;
-    int BaseBlood;
-    int BoostBlood;
+    explicit Card(int id, QObject *parent = nullptr);
+    Card(const Card &c);
+    QString get_name() const;
+    QString get_faction() const;
+    QString get_picpath() const;
+    QString get_color() const;
+    QString get_rule() const;
+    QString get_type() const;
+    int get_id() const;
+    int get_baseblood() const;
+    int get_boostblood() const;
+    int get_armor() const;
 
+signals:
+
+public slots:
+
+private:
+    QString name, faction;
+    QString picpath, color;
+    QString rule, type;
+    int id, baseblood, boostblood, armor;
 };
 
-#endif //CARDS_CARD_H
+#endif // CARD_H

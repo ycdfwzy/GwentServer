@@ -1,1 +1,1 @@
-{"decks": [{"deckname": "stater", "cards": [16, 8, 19, 17, 7, 57, 66, 75, 169, 188, 181, 182, 256, 225, 236, 281, 63], "leader": 183}], "drawgames": 0, "name": "123", "totalgames": 0, "victorygames": 0, "defeatgames": 0}
+{"totalgames": 0, "victorygames": 0, "drawgames": 0, "name": "123", "decks": {"stater": {"leader": 183, "cards": [16, 8, 18, 41, 19, 17, 10, 7, 101, 57, 58, 66, 75, 169, 188, 181, 182, 256, 225, 236, 281, 294, 63, 167, 171]}}, "defeatgames": 0}

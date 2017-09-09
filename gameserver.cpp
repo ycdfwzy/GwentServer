@@ -10,7 +10,7 @@ gameServer::gameServer()
 gameServer::~gameServer(){}
 
 void gameServer::client_Disconnected(MyTCPSocket *client){
-    qDebug() << "Client " << client->player->name << " is disconnected";
+    qDebug() << "Client " << client->get_player()->get_name() << " is disconnected";
     //change status
     QFile file("D:\\git\\GwentServer\\data\\users\\all.json");
     if (file.open(QFile::ReadOnly)){
@@ -30,7 +30,7 @@ void gameServer::client_Disconnected(MyTCPSocket *client){
                     int sz = usrarr.size();
                     for (int i = 0; i < sz; ++i){
                         us = usrarr.at(i).toVariant().toMap();
-                        if (client->player->name.compare(us["username"].toString()) == 0){
+                        if (client->get_player()->get_name().compare(us["username"].toString()) == 0){
                             flag = true;
                             us.insert("status", "Offline"); //change status
                         }

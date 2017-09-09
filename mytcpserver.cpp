@@ -33,6 +33,11 @@ void MyTCPServer::Read_Data(MyTCPSocket* client){
             gs->checklogin(client, sl.at(0), sl.at(1));
         qDebug() << gs->clients.size();
         //qDebug() << sl.at(1);
+    } else
+    if (str.startsWith("AddDeck: ")){
+        QString str0 = str.mid(9);
+        QStringList sl = str0.split(' ');
+        client->update_deck(sl);
     }
     //qDebug() << str;
 }

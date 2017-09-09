@@ -15,11 +15,6 @@ SOURCES += main.cpp \
     mytcpsocket.cpp \
     mytcpserver.cpp \
     player.cpp \
-    gameserver.cpp \
-    main.cpp \
-    mytcpserver.cpp \
-    mytcpsocket.cpp \
-    player.cpp \
     cards/card.cpp \
     cards/deck.cpp
 
@@ -38,10 +33,6 @@ HEADERS += \
     gameserver.h \
     mytcpsocket.h \
     mytcpserver.h \
-    player.h \
-    gameserver.h \
-    mytcpserver.h \
-    mytcpsocket.h \
     player.h \
     cards/card.h \
     cards/deck.h
