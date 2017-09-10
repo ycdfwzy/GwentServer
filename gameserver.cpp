@@ -10,6 +10,9 @@ gameServer::gameServer()
 gameServer::~gameServer(){}
 
 void gameServer::client_Disconnected(MyTCPSocket *client){
+    QObject::disconnect(client, &MyTCPSocket::readyReadClient, server, &MyTCPServer::Read_Data);
+    QObject::disconnect(client, &MyTCPSocket::Disconnect, this, &gameServer::client_Disconnected);
+
     qDebug() << "Client " << client->get_player()->get_name() << " is disconnected";
     //change status
     QFile file("D:\\git\\GwentServer\\data\\users\\all.json");
@@ -64,9 +67,6 @@ void gameServer::client_Disconnected(MyTCPSocket *client){
         if ((*i)->socketDescriptor() == client->socketDescriptor()){
             clients.erase(i);
         }
-
-    QObject::disconnect(client, &MyTCPSocket::readyReadClient, server, &MyTCPServer::Read_Data);
-    QObject::disconnect(client, &MyTCPSocket::Disconnect, this, &gameServer::client_Disconnected);
 }
 
 void gameServer::checklogin(MyTCPSocket *client, QString username, QString password){
@@ -113,6 +113,8 @@ void gameServer::checklogin(MyTCPSocket *client, QString username, QString passw
             }
             server->Send_Data(client, "Welcome!");
             //client->addplayer(username);
+            clients.append(client);
+            QObject::connect(client, &MyTCPSocket::Disconnect, this, &gameServer::client_Disconnected);
 
             //send user data
             QString dir_path = "D:\\git\\GwentServer\\data\\users\\" + username + ".json";
@@ -124,6 +126,8 @@ void gameServer::checklogin(MyTCPSocket *client, QString username, QString passw
                 msg = "Data:" + msg;
                 server->Send_Data(client, msg);
             }
+
         }
     }
+    //qDebug() << "Something happened to database!";
 }

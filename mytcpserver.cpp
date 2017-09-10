@@ -18,8 +18,8 @@ void MyTCPServer::incomingConnection(qintptr socketDescriptor){
     //ts->socketDescriptor()
 
     QObject::connect(ts, &MyTCPSocket::readyReadClient, this, &MyTCPServer::Read_Data);
-    QObject::connect(ts, &MyTCPSocket::Disconnect, gs, &gameServer::client_Disconnected);
-    gs->clients.push_back(ts);
+    //QObject::connect(ts, &MyTCPSocket::Disconnect, gs, &gameServer::client_Disconnected);
+    //gs->clients.push_back(ts);
 }
 
 void MyTCPServer::Read_Data(MyTCPSocket* client){
