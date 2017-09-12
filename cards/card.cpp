@@ -7,7 +7,7 @@ Card::Card(int id, QObject *parent) : QObject(parent)
     boostblood = 0;
     armor = 0;
 
-    QFile file(":/data/cardinfo");
+    QFile file("D:\\git\\GwentServer\\cards\\cardinfo.json");
     if (file.open(QFile::ReadOnly)){
         QString str = file.readAll();
         QJsonParseError error;
@@ -108,6 +108,10 @@ Card::Card(const Card &c){
     baseblood = c.baseblood;
     boostblood = c.boostblood;
     armor = c.armor;
+}
+
+void Card::set_loc(QString loc){
+    location = loc;
 }
 
 QString Card::get_name() const{return name;}

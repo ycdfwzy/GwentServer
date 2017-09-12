@@ -1,5 +1,6 @@
 #include "player.h"
 #include "mytcpsocket.h"
+#include "Battle.h"
 #include <QDebug>
 
 Player::Player(MyTCPSocket *client_, const QString &Alldata, QObject *parent) : QObject(parent){
@@ -32,6 +33,7 @@ Player::Player(MyTCPSocket *client_, const QString &Alldata, QObject *parent) : 
         }
     }
     name_helper = 0;
+    battle = nullptr;
 }
 
 Player::~Player(){}
@@ -97,6 +99,39 @@ void Player::writetofile(){
 
 }
 
+QList<Card*>* Player::get_cardlist(QString name){
+    QList<Card*>* ret = nullptr;
+    foreach (Deck* deck, decks)
+        if (name.compare(deck->get_name()) == 0){
+            ret = deck->get_cards_pointer();
+        }
+    return ret;
+}
+
+void Player::wingame(){
+    totalgames++;
+    victorygames++;
+}
+
+void Player::drawgame(){
+    totalgames++;
+    drawgames++;
+}
+
+void Player::losegame(){
+    defeatgames++;
+    drawgames++;
+}
+
+void Player::battleover(){
+    battle = nullptr;
+    writetofile();
+}
+
+void Player::startbattle(Battle *b){
+    battle = b;
+}
+
 QString Player::get_name()const{return name;}
 int Player::get_totalgames()const{return totalgames;}
 int Player::get_victorygames()const{return victorygames;}
@@ -105,3 +140,4 @@ int Player::get_defeatgames()const{return defeatgames;}
 QList<Deck*>& Player::get_decks(){return decks;}
 QList<Deck*>* Player::get_decks_pointer(){return &decks;}
 int Player::get_nextdeckname(){return name_helper+1;}
+Battle* Player::get_battle(){ return battle;}

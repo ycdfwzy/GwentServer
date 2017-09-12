@@ -25,24 +25,14 @@ void MyTCPServer::incomingConnection(qintptr socketDescriptor){
 void MyTCPServer::Read_Data(MyTCPSocket* client){
     QByteArray buffer = client->readAll();
     QString str = buffer;
-    qDebug() << str;
-    if (str.startsWith('I')){
-        QString str0 = str.mid(1);
-        QStringList sl = str0.split(' ');
-        if (sl.length() == 2)
-            gs->checklogin(client, sl.at(0), sl.at(1));
-        qDebug() << gs->clients.size();
-        //qDebug() << sl.at(1);
-    } else
-    if (str.startsWith("AddDeck: ")){
-        QString str0 = str.mid(9);
-        QStringList sl = str0.split(' ');
-        client->update_deck(sl);
-    }
-    //qDebug() << str;
+    QStringList strlist = str.split(';');
+    int sz = strlist.size();
+    for (int i = 0; i < sz-1; ++i)
+        gs->dealwithmsg(client, QString(strlist.at(i)));
 }
 
 void MyTCPServer::Send_Data(MyTCPSocket* client, QString msg){
+    msg = msg + ";";
     client->write(msg.toLatin1());
     client->waitForBytesWritten();
 }

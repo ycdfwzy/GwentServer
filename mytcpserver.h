@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QtNetwork/QTcpServer>
 #include "mytcpsocket.h"
+#include "waitqueue.h"
 #include <QVector>
 
 class gameServer;

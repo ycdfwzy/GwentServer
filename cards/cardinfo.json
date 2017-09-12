@@ -114,7 +114,7 @@
         "name_cn": "达冈",
         "name_us": "Dagon",
         "picpath": ":/images/cards/images/da2gang1.png",
-        "rule": "生成“达冈”。",
+        "rule": "部署：生成“刺骨冰霜”、“蔽日浓雾”或“倾盆大雨”。",
         "blood": 6,
         "color": "gold",
         "type": "属性：水生。"

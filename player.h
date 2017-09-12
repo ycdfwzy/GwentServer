@@ -15,6 +15,7 @@
 #include "cards/deck.h"
 
 class MyTCPSocket;
+class Battle;
 
 class Player : public QObject
 {
@@ -31,10 +32,17 @@ public:
     int get_drawgames()const;
     int get_defeatgames()const;
     int get_nextdeckname();
+    Battle* get_battle();
+    void wingame();
+    void losegame();
+    void drawgame();
+    QList<Card*>* get_cardlist(QString);
     bool update_deck(QString name, Card* leader, QList<Card*> *cardlist);
     QList<Deck*>& get_decks();
     QList<Deck*>* get_decks_pointer();
     void writetofile();
+    void battleover();
+    void startbattle(Battle*);
 
 signals:
 
@@ -44,6 +52,7 @@ private:
     int totalgames, victorygames, drawgames, defeatgames;
     QList<Deck*> decks;
     int name_helper;
+    Battle *battle;
 };
 /*
 class Player : public QObject

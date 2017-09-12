@@ -16,6 +16,7 @@
 #include "mytcpsocket.h"
 #include "mytcpserver.h"
 #include "player.h"
+#include "battle.h"
 
 class gameServer : public QObject
 {
@@ -27,11 +28,17 @@ public:
     MyTCPServer *server;
     QList<MyTCPSocket*> clients;
 
-    //void server_New_Connect();
     void client_Disconnected(MyTCPSocket*);
-    //void Read_Data(MyTCPSocket*);
     void checklogin(MyTCPSocket*, QString, QString);
+    void matched(MyTCPSocket*, QString, MyTCPSocket*, QString);
+    void Send_Data(MyTCPSocket*, QString);
+    void dealwithmsg(MyTCPSocket*, QString);
 
+public slots:
+    void onebattleover(Battle*);
+
+private:
+    QList<Battle*> battlelist;
 };
 
 #endif // GAMESERVER_H

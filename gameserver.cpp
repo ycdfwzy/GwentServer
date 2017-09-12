@@ -9,6 +9,10 @@ gameServer::gameServer()
 
 gameServer::~gameServer(){}
 
+void gameServer::Send_Data(MyTCPSocket *client, QString msg){
+    server->Send_Data(client, msg);
+}
+
 void gameServer::client_Disconnected(MyTCPSocket *client){
     QObject::disconnect(client, &MyTCPSocket::readyReadClient, server, &MyTCPServer::Read_Data);
     QObject::disconnect(client, &MyTCPSocket::Disconnect, this, &gameServer::client_Disconnected);
@@ -130,4 +134,53 @@ void gameServer::checklogin(MyTCPSocket *client, QString username, QString passw
         }
     }
     //qDebug() << "Something happened to database!";
+}
+
+void gameServer::matched(MyTCPSocket *client1, QString name1, MyTCPSocket *client2, QString name2){
+    Send_Data(client1, "FOUND " + client2->get_player()->get_name());
+    Send_Data(client2, "FOUND " + client1->get_player()->get_name());
+    Battle *x = new Battle(this, client1, name1, client2, name2);
+    battlelist.append(x);
+    connect(x, SIGNAL(send_to_server(Battle*)), this, SLOT(onebattleover(Battle*)));
+}
+
+void gameServer::onebattleover(Battle* b){
+    battlelist.removeAll(b);
+    delete b;
+}
+
+void gameServer::dealwithmsg(MyTCPSocket *client, QString str){
+    qDebug() << str;
+    if (str.startsWith('I')){
+        QString str0 = str.mid(1);
+        QStringList sl = str0.split(' ');
+        if (sl.length() == 2)
+            checklogin(client, sl.at(0), sl.at(1));
+        qDebug() << clients.size();
+        //qDebug() << sl.at(1);
+    } else
+    if (str.startsWith("AddDeck: ")){
+        QString str0 = str.mid(9);
+        QStringList sl = str0.split(' ');
+        client->update_deck(sl);
+    } else
+    if (str.startsWith("ChooseforBattle: ")){
+        QString str0 = str.mid(17);
+        WaitQueue::readPlay(this, client, str0);
+    } else
+    if (str.startsWith("STOPMATCH!")){
+        WaitQueue::stopwait(client);
+    } else
+    if (str.startsWith("click: ")){
+        QString str0 = str.mid(7);
+        if (client->get_player()->get_battle() != nullptr){
+           client->get_player()->get_battle()->clicksomething(client, str0);
+        }
+    } else
+    if (str.startsWith("pass")){
+        client->get_player()->get_battle()->topassed(client);
+    } else
+    if (str.startsWith("surrender")){
+        client->get_player()->get_battle()->tosurrender(client);
+    }
 }
