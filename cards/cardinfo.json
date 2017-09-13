@@ -265,7 +265,7 @@
         "name_us": "Biting Frost",
         "picpath": ":/images/cards/images/ci4gu3bing1shuang1.png",
         "rule": "在对方单排降下“刺骨冰霜”。",
-        "blood": 3,
+        "blood": 0,
         "color": "brown",
         "type": "属性：特殊，天气。站位：任意"
     }

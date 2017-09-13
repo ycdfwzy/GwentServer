@@ -2,6 +2,14 @@
 #include "gameserver.h"
 #include <algorithm>
 
+QString tostring(int x1, int x2, int x3){
+    return QString::number(x1) + " " + QString::number(x2) + " " + QString::number(x3);
+}
+
+QString tostring(int x1, int x2, int x3, int x4){
+    return QString::number(x1) + " " + QString::number(x2) + " " + QString::number(x3) + " " + QString::number(x4);
+}
+
 Battle::Battle(gameServer *gs, MyTCPSocket *client1, QString deck1, MyTCPSocket *client2, QString deck2, QObject *parent) : QObject(parent)
 {
     this->gs = gs;
@@ -16,6 +24,12 @@ Battle::Battle(gameServer *gs, MyTCPSocket *client1, QString deck1, MyTCPSocket 
     //qDebug() << deck[0]->size();
     shuffle(1, player[1]->get_cardlist(deck2));
 
+    for (int i = 0; i < 10; ++i){
+        cards[i] = new QList<Card*>;
+        cards[i]->clear();
+        sky[i] = clean;
+    }
+    /*
     for (int i = 0; i < 2; ++i){
         //deck[i] = new QList<Card*>;
         //deck[i]->clear();
@@ -34,9 +48,11 @@ Battle::Battle(gameServer *gs, MyTCPSocket *client1, QString deck1, MyTCPSocket 
         sky_ranged[i] = clean;
         sky_siege[i] = clean;
     }
+    */
     round = 0;
     lastwinner = -1;
     cur = breaking;
+    score[0] = score[1] = 0;
 
     connect(this, SIGNAL(startroundsignal()), this, SLOT(startround()));
     connect(this, SIGNAL(endroundsignal()), this, SLOT(endround()));
@@ -47,33 +63,37 @@ Battle::Battle(gameServer *gs, MyTCPSocket *client1, QString deck1, MyTCPSocket 
     connect(this, SIGNAL(endturnsignal()), this, SLOT(endturn()));
     connect(this, SIGNAL(oversignal(overstate)), this, SLOT(over(overstate)));
 
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(nextround()));
-    timer->setSingleShot(true);
-    timer->start(1000);
+    timer = nullptr;
+
+    QTimer *t = new QTimer(this);
+    connect(t, SIGNAL(timeout()), this, SLOT(nextround()));
+    t->setSingleShot(true);
+    t->start(1000);
 }
 
 void Battle::shuffle(int index, QList<Card *> *src){
-    deck[index] = new QList<Card*>;
-    deck[index]->clear();
+    cards[10^index] = new QList<Card*>;
+    cards[10^index]->clear();
+    //deck[index] = new QList<Card*>;
+    //deck[index]->clear();
     int sz = src->size();
     int id[50];
-    for (int i = 0;  i < sz; ++i)
+    for (int i = 0; i < sz; ++i)
         id[i] = i;
     QString msg;
     std::random_shuffle(id, id+sz);
     for (int i = 0; i < sz; ++i){
         int t = src->at(id[i])->get_id();
-        deck[index]->append(new Card(t));
-        deck[index]->back()->set_loc("mdeck");
+        cards[10^index]->append(new Card(t));
+        cards[10^index]->back()->set_loc(10^index);
         if (i == 0) msg = QString::number(t);
             else msg += " " + QString::number(t);
     }
 
     //qDebug() << tar->size();
     //send to players
-    gs->Send_Data(client[index], "LoadDeck_m: " + msg);
-    gs->Send_Data(client[index^1], "LoadDeck_o: " + msg);
+    gs->Send_Data(client[index], "LoadDeck: 0 " + msg);
+    gs->Send_Data(client[index^1], "LoadDeck: 1 " + msg);
 }
 
 void Battle::nextround(){
@@ -81,11 +101,11 @@ void Battle::nextround(){
     ++round;
     switch (round) {
     case 1:
+        cur = mulligan;
         pumping(10, 0);
         pumping(10, 1);
         Mulligan(3, 0);
         Mulligan(3, 1);
-        cur = mulligan;
 
         timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(endmulligan()));
@@ -93,11 +113,11 @@ void Battle::nextround(){
         timer->start(60000);
         break;
     case 2:
+        cur = mulligan;
         pumping(2, 0);
         pumping(2, 1);
         Mulligan(1, 0);
         Mulligan(1, 1);
-        cur = mulligan;
 
         timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(endmulligan()));
@@ -105,11 +125,11 @@ void Battle::nextround(){
         timer->start(20000);
         break;
     case 3:
+        cur = mulligan;
         pumping(1, 0);
         pumping(1, 1);
         Mulligan(1, 0);
         Mulligan(1, 1);
-        cur = mulligan;
 
         timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(endmulligan()));
@@ -125,15 +145,15 @@ void Battle::pumping(int num, int id){
     qDebug() << "pumping";
     int num_ = 0;
     for (int i = 0; i < num; ++i)
-    if (!deck[id]->empty()){
-        card[id]->push_back( deck[id]->front() );
-        card[id]->back()->set_loc("mcard");
-        deck[id]->pop_front();
+    if (!cards[10^id]->empty()){
+        cards[id]->push_back( cards[10^id]->front() );
+        cards[id]->back()->set_loc(id);
+        cards[10^id]->pop_front();
         num_++;
     }
     //send data to players
-   gs->Send_Data(client[id], "PUMP_m: " + QString::number(num_));
-   gs->Send_Data(client[id^1], "PUMP_o: " + QString::number(num_));
+   gs->Send_Data(client[id], "PUMP: 0 " + QString::number(num_));
+   gs->Send_Data(client[id^1], "PUMP: 1 " + QString::number(num_));
 }
 
 void Battle::Mulligan(int num, int id){
@@ -145,8 +165,11 @@ void Battle::Mulligan(int num, int id){
 
 void Battle::endmulligan(){
     qDebug() << "endmulligan";
+    //qDebug() << timer->isActive();
     if (timer->isActive()){
         timer->stop();
+        //delete timer;
+        //timer = nullptr;
         cnt[0] = cnt[1] = 0;
     }
     emit startroundsignal();
@@ -170,6 +193,26 @@ void Battle::startround(){
         if (lastwinner == 0) cur = turn0;
             else cur = turn1;
     }
+    passed[0] = passed[1] = false;
+
+    //clear the board
+    for (int i = 2; i < 8; ++i){
+        while (!cards[i]->empty()){
+            Card* card = cards[i]->front();
+            cards[8^(i&1)]->append(card);
+            card->set_loc(8^(i&1));
+            cards[i]->pop_front();
+
+
+            gs->Send_Data(client[0], "move " +  tostring(i, 0, 8^(i&1)) );
+            gs->Send_Data(client[1], "move " +  tostring(i^1, 0, 8^(i&1)^1) );
+        }
+
+        sky[i] = clean;
+        gs->Send_Data(client[0], "cleansky " + QString::number(i));
+        gs->Send_Data(client[1], "cleansky " + QString::number(i^1));
+    }
+
     //send to players
     gs->Send_Data(client[0], "Round"+QString::number(round));
     gs->Send_Data(client[1], "Round"+QString::number(round));
@@ -179,14 +222,16 @@ void Battle::startround(){
 
 void Battle::startturn(){
     qDebug() << "start turn";
-    if (card[cur]->empty()){
+    if (cards[cur]->empty()){
         passed[cur] = true;
     }
+
+    qDebug() << passed[0] << passed[1];
     if (passed[cur]){
         if (passed[cur^1]){
             emit endroundsignal();
         } else{
-           emit endturn();
+            emit endturn();
         }
         return;
     }
@@ -212,19 +257,11 @@ void Battle::endround(){
     qDebug() << "end round";
     cur = breaking;
     int s[2];
-    for (int i = 0; i < 2; ++i){
-        s[0] = 0;
-        foreach (Card* card, *melee[i]){
+    s[0] = s[1] = 0;
+    for (int i = 2; i < 8; ++i){
+        foreach (Card* card, *cards[i]){
             int blood = card->get_baseblood() + card->get_boostblood();
-            score[i] += blood;
-        }
-        foreach (Card* card, *ranged[i]){
-            int blood = card->get_baseblood() + card->get_boostblood();
-            score[i] += blood;
-        }
-        foreach (Card* card, *siege[i]){
-            int blood = card->get_baseblood() + card->get_boostblood();
-            score[i] += blood;
+            s[i&1] += blood;
         }
     }
 
@@ -262,15 +299,23 @@ void Battle::endround(){
 void Battle::endturn(){
     qDebug() << "end turn";
 
-    if (!timer->isActive()){ // punishment
-        int t = qrand()%(card[cur]->size());
-        card[cur]->removeAt(t);
-        QString msg = "mcard " + QString::number(t) + " mgraveyard";
-        gs->Send_Data(client[cur], "move_m" + msg);
-        gs->Send_Data(client[cur^1], "move_o" + msg);
-    } else
-    {
+    //qDebug() << timer->isActive();
+    if (timer->isActive()){
         timer->stop();
+        //delete timer;
+        //timer = nullptr;
+        //结算
+
+    } else
+    if (!cards[cur]->empty()){ // punishment
+        int t = qrand()%(cards[cur]->size());
+        Card *tmp = cards[cur]->at(t);
+        cards[cur]->removeAt(t);
+        cards[8^cur]->append(tmp);
+        //QString msg = "mcard " + QString::number(t) + " mgraveyard";
+
+        gs->Send_Data(client[0], "move " + tostring(cur, t, 8^cur));
+        gs->Send_Data(client[1], "move " + tostring(cur^1, t, 8^cur^1));
     }
 
     emit switchturnsignal();
@@ -281,18 +326,25 @@ void Battle::domulligan(int playerid, int index){
     if (cnt[playerid] > 0){
         --cnt[playerid];
 
-        int t = qrand()%deck[playerid]->size();
-        qDebug() << t << " " << deck[playerid]->size();
-        Card* tmp1 = card[playerid]->at(index);
-        Card* tmp2 = deck[playerid]->at(t);
-        card[playerid]->removeAt(index);
-        deck[playerid]->removeAt(t);
-        card[playerid]->append(tmp2);
-        deck[playerid]->append(tmp1);
+        int t = qrand()%cards[10^playerid]->size();
+        qDebug() << t << " " << cards[10^playerid]->size();
+        Card* tmp1 = cards[playerid]->at(index);
+        Card* tmp2 = cards[10^playerid]->at(t);
+        cards[playerid]->removeAt(index);
+        cards[10^playerid]->removeAt(t);
+        cards[playerid]->append(tmp2);
+        cards[10^playerid]->append(tmp1);
 
         // send to players
-        gs->Send_Data(client[playerid], "replace_m" + QString::number(index) + " " + QString::number(t));
-        gs->Send_Data(client[playerid^1], "replace_o" + QString::number(index) + " " + QString::number(t));
+
+        gs->Send_Data(client[0], "move " + tostring(playerid, index, 10^playerid));
+        gs->Send_Data(client[1], "move " + tostring(playerid^1, index, 10^playerid^1));
+
+        gs->Send_Data(client[0], "move " + tostring(10^playerid, t, playerid));
+        gs->Send_Data(client[1], "move " + tostring(10^playerid^1, t, playerid^1));
+
+        //gs->Send_Data(client[playerid], "replace_m" + QString::number(index) + " " + QString::number(t));
+        //gs->Send_Data(client[playerid^1], "replace_o" + QString::number(index) + " " + QString::number(t));
 
         if (cnt[1] == 0 && cnt[0] == 0){
             emit endmulligansignal();
@@ -301,22 +353,24 @@ void Battle::domulligan(int playerid, int index){
 }
 
 void Battle::over(overstate state){
-    qDebug() << "gameover";
+    qDebug() << "gameover" << state;
     cur = gameover;
     //send to palyer
 
     if (state == draw){
         player[0]->drawgame();
-        gs->Send_Data(client[0], "DRAW!");
+        gs->Send_Data(client[0], "YOUGETDRAW!");
         player[1]->drawgame();
-        gs->Send_Data(client[1], "DRAW!");
+        gs->Send_Data(client[1], "YOUGETDRAW!");
     } else
     {
         player[state]->wingame();
-        gs->Send_Data(client[state], "WIN!");
+        gs->Send_Data(client[state], "YOUAREWINNER!");
         player[state^1]->losegame();
-        gs->Send_Data(client[state^1], "LOSE!");
+        gs->Send_Data(client[state^1], "YOUAERLOSER!");
     }
+    gs->Send_Data(client[0], "Nothing!!!!!!!!!!");
+    gs->Send_Data(client[1], "Nothing!!!!!!!!!!");
     emit send_to_server(this);
 }
 
@@ -325,8 +379,14 @@ void Battle::topassed(MyTCPSocket *c){
     if (c == client[0])
         playerid = 0;
     else playerid = 1;
-    if (playerid == cur)
+    if (playerid == cur){
         passed[cur] = true;
+        /*if (timer->isActive()){
+            timer->stop();
+        }*/
+        //emit switchturnsignal();
+        emit endturnsignal();
+    }
 }
 
 void Battle::tosurrender(MyTCPSocket *c){
@@ -334,28 +394,38 @@ void Battle::tosurrender(MyTCPSocket *c){
     if (c == client[0])
         playerid = 0;
     else playerid = 1;
+    if (timer->isActive()){
+        timer->stop();
+        //delete timer;
+        //timer = nullptr;
+    }
     if (playerid == 0) emit over(player1win);
         else emit over(player0win);
 }
 
 void Battle::clicksomething(MyTCPSocket *c, QString msg){
-    int id;
-    if (c == client[0]) id = 0;
-        else id = 1;
+    int playerid;
+    if (c == client[0]) playerid = 0;
+        else playerid = 1;
+    qDebug() << msg << ts;
     if (cur == mulligan){
-        if (msg.startsWith("mcard ")){
-            QString msg0 = msg.mid(6);
-            domulligan(id, msg0.toInt());
+        QStringList lt = msg.split(' ');
+        //if (msg.startsWith('b') || msg.startsWith("others"))
+        //    return;
+        QString tmp = lt.at(0);
+        if (tmp.compare("0") == 0){
+            tmp = lt.at(1);
+            domulligan(playerid, tmp.toInt());
         }
     } else
-    if (cur == id) {
+    if (cur == playerid) {
         //qDebug() << "inchoose";
         switch (ts) {
         case getsrc:
-            get_src(id, msg);
+            get_src(playerid, msg);
             break;
         case gettar:
-            get_tar(id, msg);
+            get_tar(playerid, msg);
             break;
         case poxiao:
             break;
@@ -378,68 +448,180 @@ void Battle::clicksomething(MyTCPSocket *c, QString msg){
     //else other functions
 }
 
-void Battle::get_src(int id, QString msg){
-    qDebug() << "get_src" << id << " "<< msg;
+void Battle::get_src(int playerid, QString msg){
+    qDebug() << "get_src" << playerid << " "<< msg;
     QStringList msglist = msg.split(" ");
     if (msglist.size()!=2) return;
     QString loc = msglist.at(0);
     int index = msglist.at(1).toInt();
-    if (loc.compare("mcard") != 0) return;
-    src = card[id]->at(index);
+    if (loc.compare("0") != 0) return;
+    src = cards[playerid]->at(index);
     ts = gettar;
 }
 
-void Battle::get_tar(int id, QString msg){
-    qDebug() << "get_tar" << id << " "<< msg;
+void Battle::get_tar(int playerid, QString msg){
+    qDebug() << "get_tar" << playerid << " "<< msg;
     //if (msglist.size()!=2) return;
 
-    QStringList msglist;
-    QString loc;
-    int index;
-    int k = card[id]->indexOf(src);
-    card[id]->removeAll(src);
+    //QStringList msglist = msg.split(" ");
+    //QString loc;
 
     //deploy
-    if (msg.startsWith("blank ")){
-    msg = msg.mid(6);
-    msglist = msg.split(" ");
-    loc = msglist.at(0);
-    index = msglist.at(1).toInt();
+/*
+    int t = src->get_id();
+    switch (t) {
+    case 10:
+    case 17:
+        if (msg.startsWith("mmelee ")){
+            msg = msg.mid(7);
+            if (t == 10) zhihuihaojiao(melee[id], msg.toInt(), id);
+                else mianyizengqiang(melee[id], msg.toInt(), id);
+        } else
+        if (msg.startsWith("omelee ")){
+            msg = msg.mid(7);
+            if (t == 10) zhihuihaojiao(melee[id^1], msg.toInt(), id);
+                else mianyizengqiang(melee[id^1], msg.toInt(), id);
+        } else
+        if (msg.startsWith("mranged ")){
+            msg = msg.mid(8);
+            if (t == 10) zhihuihaojiao(ranged[id], msg.toInt(), id);
+                else mianyizengqiang(ranged[id], msg.toInt(), id);
+        } else
+        if (msg.startsWith("oranged ")){
+            msg = msg.mid(8);
+            if (t == 10) zhihuihaojiao(ranged[id^1], msg.toInt(), id);
+                else mianyizengqiang(ranged[id^1], msg.toInt(), id);
+        } else
+        if (msg.startsWith("msiege ")){
+            msg = msg.mid(7);
+            if (t == 10) zhihuihaojiao(siege[id], msg.toInt(), id);
+                else mianyizengqiang(siege[id], msg.toInt(), id);
+        } else
+        if (msg.startsWith("osiege ")){
+            msg = msg.mid(7);
+            if (t == 10) zhihuihaojiao(siege[id^1], msg.toInt(), id);
+                else mianyizengqiang(siege[id^1], msg.toInt(), id);
+        } else
+        {
+            ts = getsrc; //undo
+            return;
+        }
+        break;
+    case 8:
+    case 18:
+    case 19:
+    case 41:
 
-    if (loc.compare("mmelee")){
-        melee[id]->insert(index, src);
-        src->set_loc("mmelee");
-    } else
-    if (loc.compare("omelee")){
-        melee[id^1]->insert(index, src);
-        src->set_loc("omelee");
-    } else
-    if (loc.compare("mranged")){
-        ranged[id]->insert(index, src);
-        src->set_loc("mranged");
-    } else
-    if (loc.compare("oranged")){
-        ranged[id^1]->insert(index, src);
-        src->set_loc("oranged");
-    }else
-    if (loc.compare("msiege")){
-        siege[id]->insert(index, src);
-        src->set_loc("msiege");
-    } else
-    if (loc.compare("osiege")){
-        siege[id^1]->insert(index, src);
-        src->set_loc("osiege");
-    } else
-    {
-        ts = getsrc; //undo
-        return;
+        break;
+    default:
+        break;
     }
-    }
+*/
+//    if (src->get_baseblood() > 0){
+    int index1, index2;
+        if (msg.startsWith("b ")){
+            msg = msg.mid(2);
+            QStringList msglist = msg.split(' ');
+            if (msglist.at(0).toInt() > 1){
+                index1 = msglist.at(0).toInt()^playerid;
+                index2 = msglist.at(1).toInt();
 
-    //send to players
-    QString tmp = "mcard " + QString::number(k) + " " + loc + " "+ QString::number(index);
-    gs->Send_Data(client[id], "move_m " + tmp);
-    gs->Send_Data(client[id^1], "move_o " + tmp);
+                cards[index1]->insert(index2, src);
+                src->set_loc(index1);
 
-    emit switchturnsignal();
+                int k = cards[playerid]->indexOf(src);
+                cards[playerid]->removeAll(src);
+
+                gs->Send_Data(client[0], "move " + tostring(playerid, k, index1, index2));
+                gs->Send_Data(client[1], "move " + tostring(playerid^1, k, index1^1, index2));
+
+                emit endturnsignal();
+            }
+
+            /*
+            msglist = msg.split(" ");
+            loc = msglist.at(0);
+            index = msglist.at(1).toInt();
+            */
+            /*
+            if (loc.compare("mmelee") == 0){
+                melee[id]->insert(index, src);
+                src->set_loc("mmelee");
+            } else
+            if (loc.compare("omelee") == 0){
+                melee[id^1]->insert(index, src);
+                src->set_loc("omelee");
+            } else
+            if (loc.compare("mranged") == 0){
+                ranged[id]->insert(index, src);
+                src->set_loc("mranged");
+            } else
+            if (loc.compare("oranged") == 0){
+                ranged[id^1]->insert(index, src);
+                src->set_loc("oranged");
+            }else
+            if (loc.compare("msiege") == 0){
+                siege[id]->insert(index, src);
+                src->set_loc("msiege");
+            } else
+            if (loc.compare("osiege") == 0){
+                siege[id^1]->insert(index, src);
+                src->set_loc("osiege");
+            } else
+            {
+                ts = getsrc; //undo
+                return;
+            }
+            */
+
+        }
+//    }
+
+    //QString tmp = "mcard " + QString::number(k) + " " + loc + " "+ QString::number(index);
+    //gs->Send_Data(client[id], "move_m " + tmp);
+    //gs->Send_Data(client[id^1], "move_o " + tmp);
 }
+/*
+void Battle::zhihuihaojiao(QList<Card *> *cardlist, int index, int playerid){
+    int l = index-2, r = index+2;
+    if (l < 0) l = 0;
+    if (r >= cardlist->size())
+        r = cardlist->size()-1;
+    for (int i = l; i <= r; ++i){
+        Card* card = cardlist->at(i);
+        card->add_boost(4);
+
+        QString msg =  " " + QString::number(i) + " 0 4 0";
+        gs->Send_Data(client[playerid], "Update_m " + msg);
+        gs->Send_Data(client[playerid^1], "Update_o " + msg);
+    }
+}
+
+void Battle::mianyizengqiang(QList<Card *> *cardlist, int index, int playerid){
+    int l = index-1, r = index+1;
+    if (l < 0) l = 0;
+    if (r >= cardlist->size())
+        r = cardlist->size()-1;
+    for (int i = l; i <= r; ++i){
+        Card* card = cardlist->at(i);
+        card->add_boost(3);
+        card->add_armor(3);
+
+        QString msg = QString::number(i) + " 0 3 3";
+        gs->Send_Data(client[playerid], "Update_m " + msg);
+        gs->Send_Data(client[playerid^1], "Update_o " + msg);
+    }
+}
+
+void Battle::silie(QList<Card *> *cardlist, int index, int playerid){
+    int sz = cardlist->size();
+    for (int i = 0; i < sz; ++i){
+        Card* card = cardlist->at(i);
+        card->add_boost(-3);
+
+        QString msg = " " + QString::number(i) + " 0 -3 0";
+        gs->Send_Data(client[playerid], "Update_m " + msg);
+        gs->Send_Data(client[playerid^1], "Update_o " + msg);
+    }
+}
+*/

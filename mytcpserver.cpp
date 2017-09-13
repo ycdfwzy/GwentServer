@@ -34,7 +34,8 @@ void MyTCPServer::Read_Data(MyTCPSocket* client){
 void MyTCPServer::Send_Data(MyTCPSocket* client, QString msg){
     msg = msg + ";";
     client->write(msg.toLatin1());
-    client->waitForBytesWritten();
+    //client->flush();
+    while (client->waitForBytesWritten());
 }
 /*
 void MyTCPServer::Disconnect(MyTCPSocket* client){

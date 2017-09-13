@@ -178,9 +178,13 @@ void gameServer::dealwithmsg(MyTCPSocket *client, QString str){
         }
     } else
     if (str.startsWith("pass")){
-        client->get_player()->get_battle()->topassed(client);
+        if (client->get_player()->get_battle() != nullptr){
+            client->get_player()->get_battle()->topassed(client);
+        }
     } else
     if (str.startsWith("surrender")){
-        client->get_player()->get_battle()->tosurrender(client);
+        if (client->get_player()->get_battle() != nullptr){
+            client->get_player()->get_battle()->tosurrender(client);
+        }
     }
 }

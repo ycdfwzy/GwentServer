@@ -27,6 +27,12 @@ public:
     enum overstate{player0win = 0, player1win = 1, draw = 2};
     enum turnstate{getsrc, gettar, poxiao, chongzheng, gaier, dagang, zhangzhe0, zhangzhe1, zhangzhe2};
 
+
+    //void zhihuihaojiao(QList<Card*>*, int, int);
+    //void mianyizengqiang(QList<Card*>*, int, int);
+    //void silie(QList<Card*>*, int, int);
+
+
 signals:
     void startroundsignal();
     void endroundsignal();
@@ -61,15 +67,22 @@ private:
     MyTCPSocket *client[2];
     Player *player[2];
     Card *leader[2];
+    QList<Card*> *cards[12];
+    /*
     QList<Card*> *deck[2];
     QList<Card*> *graveyard[2];
     QList<Card*> *card[2];
     QList<Card*> *melee[2];
     QList<Card*> *ranged[2];
     QList<Card*> *siege[2];
+    */
+    /*
     SKY sky_melee[2];
     SKY sky_ranged[2];
     SKY sky_siege[2];
+    */
+    SKY sky[12];
+
     QStringList op;
 
     int round;

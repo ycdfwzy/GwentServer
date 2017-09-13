@@ -25,14 +25,16 @@ public:
     int get_baseblood() const;
     int get_boostblood() const;
     int get_armor() const;
-    void set_loc(QString);
+    void set_loc(int);
+    void add_boost(int);
+    void add_armor(int);
 
 signals:
 
 public slots:
 
 private:
-    QString location;
+    int curloc;
     QString name, faction;
     QString picpath, color;
     QString rule, type;

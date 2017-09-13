@@ -41,7 +41,6 @@
 void init(){
     QFile file("D:\\git\\GwentServer\\data\\users\\all.json");
     if (file.open(QFile::ReadOnly)){
-        bool flag = false;
         QVariantList all;
         QString str = file.readAll();
 
