@@ -10,6 +10,11 @@ QString tostring(int x1, int x2, int x3, int x4){
     return QString::number(x1) + " " + QString::number(x2) + " " + QString::number(x3) + " " + QString::number(x4);
 }
 
+QString tostring(int x1, int x2, int x3, int x4, int x5){
+    return QString::number(x1) + " " + QString::number(x2) + " " + QString::number(x3) + " " + QString::number(x4) + " " + QString::number(x5);
+}
+
+
 Battle::Battle(gameServer *gs, MyTCPSocket *client1, QString deck1, MyTCPSocket *client2, QString deck2, QObject *parent) : QObject(parent)
 {
     this->gs = gs;
@@ -249,8 +254,6 @@ void Battle::startturn(){
     //sky
     //Vran Warrior
 
-    //send to players
-
 }
 
 void Battle::endround(){
@@ -305,6 +308,19 @@ void Battle::endturn(){
         //delete timer;
         //timer = nullptr;
         //结算
+        for (int i = 2; i < 8; ++i){
+            int sz = cards[i]->size();
+            for (int j = sz-1; j >= 0; --j){
+                int blood = cards[i]->at(j)->get_baseblood();
+                if (blood <= 0){
+                    cards[8^(i&1)]->append(cards[i]->at(j));
+                    cards[i]->removeAt(j);
+
+                    gs->Send_Data(client[0], "move " + tostring(i, j, 8^(i&1)));
+                    gs->Send_Data(client[1], "move " + tostring(i^1, j, 8^(i&1)^1));
+                }
+            }
+        }
 
     } else
     if (!cards[cur]->empty()){ // punishment
@@ -461,67 +477,56 @@ void Battle::get_src(int playerid, QString msg){
 
 void Battle::get_tar(int playerid, QString msg){
     qDebug() << "get_tar" << playerid << " "<< msg;
-    //if (msglist.size()!=2) return;
 
-    //QStringList msglist = msg.split(" ");
-    //QString loc;
+    if (msg.contains("others")){
+        ts = getsrc; //undo
+        return;
+    }
 
-    //deploy
-/*
+    int k = cards[playerid]->indexOf(src);
+    int index1, index2;
     int t = src->get_id();
+    QStringList msglist = msg.split(' ');
+
     switch (t) {
+    case 19:
+    case 18:
+    case 41:
+    case 8:
+        if (msg.startsWith("b ")) msg = msg.mid(2);
+        msglist = msg.split(' ');
+        index1 = msglist.at(0).toInt()^playerid;
+        if (t == 19) silie(index1);
+        else if (t == 18) birinongwu(index1);
+        else if (t == 41) qingpengdayu(index1);
+        else if (t == 8) ciguhanbing(index1);
+
+        gs->Send_Data(client[0], "move " + tostring(playerid, k, 8^playerid));
+        gs->Send_Data(client[1], "move " + tostring(playerid^1, k, 8^playerid^1));
+        emit endturnsignal();
+        break;
     case 10:
     case 17:
-        if (msg.startsWith("mmelee ")){
-            msg = msg.mid(7);
-            if (t == 10) zhihuihaojiao(melee[id], msg.toInt(), id);
-                else mianyizengqiang(melee[id], msg.toInt(), id);
-        } else
-        if (msg.startsWith("omelee ")){
-            msg = msg.mid(7);
-            if (t == 10) zhihuihaojiao(melee[id^1], msg.toInt(), id);
-                else mianyizengqiang(melee[id^1], msg.toInt(), id);
-        } else
-        if (msg.startsWith("mranged ")){
-            msg = msg.mid(8);
-            if (t == 10) zhihuihaojiao(ranged[id], msg.toInt(), id);
-                else mianyizengqiang(ranged[id], msg.toInt(), id);
-        } else
-        if (msg.startsWith("oranged ")){
-            msg = msg.mid(8);
-            if (t == 10) zhihuihaojiao(ranged[id^1], msg.toInt(), id);
-                else mianyizengqiang(ranged[id^1], msg.toInt(), id);
-        } else
-        if (msg.startsWith("msiege ")){
-            msg = msg.mid(7);
-            if (t == 10) zhihuihaojiao(siege[id], msg.toInt(), id);
-                else mianyizengqiang(siege[id], msg.toInt(), id);
-        } else
-        if (msg.startsWith("osiege ")){
-            msg = msg.mid(7);
-            if (t == 10) zhihuihaojiao(siege[id^1], msg.toInt(), id);
-                else mianyizengqiang(siege[id^1], msg.toInt(), id);
-        } else
-        {
-            ts = getsrc; //undo
-            return;
+        if (!msg.startsWith("b ")){
+            index1 = msglist.at(0).toInt()^playerid;
+            index2 = msglist.at(1).toInt();
+            if (t == 10){
+                zhihuihaojiao(index1, index2);
+            } else
+            {
+                mianyizengqiang(index1, index2);
+            }
+
+            gs->Send_Data(client[0], "move " + tostring(playerid, k, 8^playerid));
+            gs->Send_Data(client[1], "move " + tostring(playerid^1, k, 8^playerid^1));
+
+            emit endturnsignal();
         }
         break;
-    case 8:
-    case 18:
-    case 19:
-    case 41:
-
-        break;
     default:
-        break;
-    }
-*/
-//    if (src->get_baseblood() > 0){
-    int index1, index2;
         if (msg.startsWith("b ")){
             msg = msg.mid(2);
-            QStringList msglist = msg.split(' ');
+            msglist = msg.split(' ');
             if (msglist.at(0).toInt() > 1){
                 index1 = msglist.at(0).toInt()^playerid;
                 index2 = msglist.at(1).toInt();
@@ -529,7 +534,6 @@ void Battle::get_tar(int playerid, QString msg){
                 cards[index1]->insert(index2, src);
                 src->set_loc(index1);
 
-                int k = cards[playerid]->indexOf(src);
                 cards[playerid]->removeAll(src);
 
                 gs->Send_Data(client[0], "move " + tostring(playerid, k, index1, index2));
@@ -537,91 +541,60 @@ void Battle::get_tar(int playerid, QString msg){
 
                 emit endturnsignal();
             }
-
-            /*
-            msglist = msg.split(" ");
-            loc = msglist.at(0);
-            index = msglist.at(1).toInt();
-            */
-            /*
-            if (loc.compare("mmelee") == 0){
-                melee[id]->insert(index, src);
-                src->set_loc("mmelee");
-            } else
-            if (loc.compare("omelee") == 0){
-                melee[id^1]->insert(index, src);
-                src->set_loc("omelee");
-            } else
-            if (loc.compare("mranged") == 0){
-                ranged[id]->insert(index, src);
-                src->set_loc("mranged");
-            } else
-            if (loc.compare("oranged") == 0){
-                ranged[id^1]->insert(index, src);
-                src->set_loc("oranged");
-            }else
-            if (loc.compare("msiege") == 0){
-                siege[id]->insert(index, src);
-                src->set_loc("msiege");
-            } else
-            if (loc.compare("osiege") == 0){
-                siege[id^1]->insert(index, src);
-                src->set_loc("osiege");
-            } else
-            {
-                ts = getsrc; //undo
-                return;
-            }
-            */
-
         }
-//    }
+        break;
+    }
 
-    //QString tmp = "mcard " + QString::number(k) + " " + loc + " "+ QString::number(index);
-    //gs->Send_Data(client[id], "move_m " + tmp);
-    //gs->Send_Data(client[id^1], "move_o " + tmp);
 }
-/*
-void Battle::zhihuihaojiao(QList<Card *> *cardlist, int index, int playerid){
-    int l = index-2, r = index+2;
+
+void Battle::zhihuihaojiao(int x, int y){
+    int sz = cards[x]->size();
+    int l = y-2, r = y+2;
     if (l < 0) l = 0;
-    if (r >= cardlist->size())
-        r = cardlist->size()-1;
+    if (r >= sz) r = sz-1;
     for (int i = l; i <= r; ++i){
-        Card* card = cardlist->at(i);
+        Card *card = cards[x]->at(i);
         card->add_boost(4);
 
-        QString msg =  " " + QString::number(i) + " 0 4 0";
-        gs->Send_Data(client[playerid], "Update_m " + msg);
-        gs->Send_Data(client[playerid^1], "Update_o " + msg);
+        gs->Send_Data(client[0], "bloodchange " + tostring(x, i, 0, 4, 0));
+        gs->Send_Data(client[1], "bloodchange " + tostring(x^1, i, 0, 4, 0));
     }
 }
 
-void Battle::mianyizengqiang(QList<Card *> *cardlist, int index, int playerid){
-    int l = index-1, r = index+1;
+void Battle::mianyizengqiang(int x, int y){
+    int sz = cards[x]->size();
+    int l = y-1, r = y+1;
     if (l < 0) l = 0;
-    if (r >= cardlist->size())
-        r = cardlist->size()-1;
+    if (r >= sz) r = sz-1;
     for (int i = l; i <= r; ++i){
-        Card* card = cardlist->at(i);
+        Card *card = cards[x]->at(i);
         card->add_boost(3);
         card->add_armor(3);
 
-        QString msg = QString::number(i) + " 0 3 3";
-        gs->Send_Data(client[playerid], "Update_m " + msg);
-        gs->Send_Data(client[playerid^1], "Update_o " + msg);
+        gs->Send_Data(client[0], "bloodchange " + tostring(x, i, 0, 3, 3));
+        gs->Send_Data(client[1], "bloodchange " + tostring(x^1, i, 0, 3, 3));
     }
 }
 
-void Battle::silie(QList<Card *> *cardlist, int index, int playerid){
-    int sz = cardlist->size();
+void Battle::ciguhanbing(int x){
+
+}
+
+void Battle::birinongwu(int x){
+
+}
+
+void Battle::qingpengdayu(int x){
+
+}
+
+void Battle::silie(int x){
+    int sz = cards[x]->size();
     for (int i = 0; i < sz; ++i){
-        Card* card = cardlist->at(i);
+        Card *card = cards[x]->at(i);
         card->add_boost(-3);
 
-        QString msg = " " + QString::number(i) + " 0 -3 0";
-        gs->Send_Data(client[playerid], "Update_m " + msg);
-        gs->Send_Data(client[playerid^1], "Update_o " + msg);
+        gs->Send_Data(client[0], "bloodchange " + tostring(x, i, 0, 0, -3));
+        gs->Send_Data(client[1], "bloodchange " + tostring(x^1, i, 0, 0, -3));
     }
 }
-*/

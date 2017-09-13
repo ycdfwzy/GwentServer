@@ -23,14 +23,19 @@ public:
     void Mulligan(int, int);
 
     enum curState{turn0=0, turn1=1, mulligan, breaking, gameover};
-    enum SKY{clean, fog, frost, rain};
+    enum SKY{clean=0, fog=1, frost=2, rain=3};
     enum overstate{player0win = 0, player1win = 1, draw = 2};
     enum turnstate{getsrc, gettar, poxiao, chongzheng, gaier, dagang, zhangzhe0, zhangzhe1, zhangzhe2};
 
 
-    //void zhihuihaojiao(QList<Card*>*, int, int);
-    //void mianyizengqiang(QList<Card*>*, int, int);
-    //void silie(QList<Card*>*, int, int);
+    void zhihuihaojiao(int, int);
+    void mianyizengqiang(int, int);
+    void silie(int);
+    void birinongwu(int);
+    void qingpengdayu(int);
+    void ciguhanbing(int);
+    void niuquzhijing();
+    void qingkong();
 
 
 signals:

@@ -26,15 +26,22 @@ public:
     int get_boostblood() const;
     int get_armor() const;
     void set_loc(int);
+    void add_base(int);
     void add_boost(int);
     void add_armor(int);
+    void set_ARMOR(bool);
+    bool get_ARMOR();
+    bool checkvalid(int loc);
 
 signals:
 
 public slots:
 
 private:
+    bool flag[12];
     int curloc;
+    bool ARMOR;
+    QString lane;
     QString name, faction;
     QString picpath, color;
     QString rule, type;

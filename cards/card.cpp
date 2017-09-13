@@ -28,6 +28,29 @@ Card::Card(int id, QObject *parent) : QObject(parent)
                         color = tmp.take("color").toVariant().toString();
                         faction = tmp.take("faction").toVariant().toString();
                         baseblood = tmp.take("blood").toVariant().toInt();
+
+                        for (int i = 0; i < 12; ++i)
+                            flag[i] = true;
+                        if (baseblood > 0){
+                            lane = tmp.take("location").toVariant().toInt();
+                            if (lane.contains("disloyal")){
+                                for (int i = 2; i < 8; i += 2)
+                                    flag[i] = false;
+                            } else {
+                                for (int i = 1; i < 8; i += 2)
+                                    flag[i] = false;
+                            }
+                            if (lane.contains("siege")){
+                                flag[4] = flag[5] = flag[6] = flag[7] = false;
+                            } else
+                            if (lane.contains("ranged")){
+                                flag[2] = flag[3] = flag[6] = flag[7] = false;
+                            } else
+                            if (lane.contains("melee")){
+                                flag[2] = flag[3] = flag[4] = flag[5] = false;
+                            }
+                        }
+                        ARMOR = false;
                         //qDebug() << name;
                     }
                 }
@@ -121,5 +144,33 @@ int Card::get_id() const{return id;}
 int Card::get_baseblood() const{return baseblood;}
 int Card::get_boostblood() const{return boostblood;}
 int Card::get_armor() const{return armor;}
-void Card::add_armor(int dlt){armor+=dlt;}
-void Card::add_boost(int dlt){boostblood+=dlt;}
+bool Card::checkvalid(int loc){return flag[loc];}
+bool Card::get_ARMOR(){return ARMOR;}
+void Card::set_ARMOR(bool f){ARMOR = f;}
+void Card::add_armor(int dlt){
+    if (dlt < 0 && ARMOR){
+        set_ARMOR(false);
+        return;
+    }
+    if (armor + dlt < 0){
+        dlt += armor;
+        armor = 0;
+        add_boost(dlt);
+        return;
+    }
+    armor += dlt;
+}
+void Card::add_boost(int dlt){
+    if (boostblood + dlt < 0){
+        dlt += boostblood;
+        boostblood = 0;
+        add_base(dlt);
+        return;
+    }
+    boostblood += dlt;
+}
+void Card::add_base(int dlt){
+    baseblood += dlt;
+    if (baseblood < 0)
+        baseblood = 0;
+}
