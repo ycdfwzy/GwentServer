@@ -40,6 +40,18 @@ public:
     void niuquzhijing();
     void qingkong();
 
+    void yigenifayin();
+    void laowuyu();
+    void dashijiu();
+    void tuyuansu();
+    bool hasnisilila(int);
+    void xiezhizhu();
+    void saieryinuoyingshennvyao(int, int);
+    void lingjing();
+
+    void yingshennvyao(int, int);
+
+
 
 signals:
     void startroundsignal();
@@ -63,11 +75,16 @@ public slots:
     void over(overstate);
     void topassed(MyTCPSocket*);
     void tosurrender(MyTCPSocket*);
+    void quitmulligan(MyTCPSocket*);
+
 
     void domulligan(int, int);
     void clicksomething(MyTCPSocket*, QString msg);
     void get_src(int, QString);
     void get_tar(int, QString);
+
+    void cijituyuansu(int);
+    void yingshengnvyaodan(int);
 
 private:
     gameServer *gs;
@@ -76,19 +93,6 @@ private:
     Player *player[2];
     Card *leader[2];
     QList<Card*> *cards[12];
-    /*
-    QList<Card*> *deck[2];
-    QList<Card*> *graveyard[2];
-    QList<Card*> *card[2];
-    QList<Card*> *melee[2];
-    QList<Card*> *ranged[2];
-    QList<Card*> *siege[2];
-    */
-    /*
-    SKY sky_melee[2];
-    SKY sky_ranged[2];
-    SKY sky_siege[2];
-    */
     SKY sky[12];
 
     QStringList op;

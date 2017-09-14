@@ -38,26 +38,7 @@ Battle::Battle(gameServer *gs, MyTCPSocket *client1, QString deck1, MyTCPSocket 
         cards[i]->clear();
         sky[i] = clean;
     }
-    /*
-    for (int i = 0; i < 2; ++i){
-        //deck[i] = new QList<Card*>;
-        //deck[i]->clear();
-        graveyard[i] = new QList<Card*>;
-        graveyard[i]->clear();
-        card[i] = new QList<Card*>;
-        card[i]->clear();
-        melee[i] = new QList<Card*>;
-        melee[i]->clear();
-        ranged[i] = new QList<Card*>;
-        ranged[i]->clear();
-        siege[i] = new QList<Card*>;
-        siege[i]->clear();
-        passed[i] = false;
-        sky_melee[i] = clean;
-        sky_ranged[i] = clean;
-        sky_siege[i] = clean;
-    }
-    */
+
     round = 0;
     lastwinner = -1;
     cur = breaking;
@@ -206,20 +187,45 @@ void Battle::startround(){
 
     //clear the board
     for (int i = 2; i < 8; ++i){
-        while (!cards[i]->empty()){
+        /*while (!cards[i]->empty()){
             Card* card = cards[i]->front();
             cards[8^(i&1)]->append(card);
             card->set_loc(8^(i&1));
             cards[i]->pop_front();
 
-
             gs->Send_Data(client[0], "move " +  tostring(i, 0, 8^(i&1)) );
             gs->Send_Data(client[1], "move " +  tostring(i^1, 0, 8^(i&1)^1) );
+        }*/
+        int sz = cards[i]->size();
+        for (int j = sz-1; j >= 0; --j){
+            Card* card = cards[i]->at(j);
+            if (card->get_id() == 188 || card->get_id() == 67) continue;
+
+            cards[8^(i&1)]->append(card);
+            card->set_loc(8^(i&1));
+            cards[i]->pop_back();
+
+            gs->Send_Data(client[0], "move " +  tostring(i, j, 8^(i&1)) );
+            gs->Send_Data(client[1], "move " +  tostring(i^1, j, 8^(i&1)^1) );
         }
 
         sky[i] = clean;
         gs->Send_Data(client[0], "sky " + tostring(i, 0));
         gs->Send_Data(client[1], "sky " + tostring(i^1, 0));
+    }
+    for (int i = 2; i < 8; ++i){
+        int sz = cards[i]->size();
+        for (int j = sz-1; j >= 0; --j){
+            Card* card = cards[i]->at(j);
+            if (!(card->get_id() == 188 || card->get_id() == 67)) continue;
+
+            cards[8^(i&1)]->append(card);
+            card->set_loc(8^(i&1));
+            cards[i]->pop_back();
+
+            gs->Send_Data(client[0], "move " +  tostring(i, j, 8^(i&1)) );
+            gs->Send_Data(client[1], "move " +  tostring(i^1, j, 8^(i&1)^1) );
+        }
     }
 
     //send to players
@@ -441,6 +447,15 @@ void Battle::tosurrender(MyTCPSocket *c){
         else emit over(player0win);
 }
 
+void Battle::quitmulligan(MyTCPSocket *c){
+    int playerid;
+    if (client[0] == c) playerid = 0;
+        else playerid = 1;
+    cnt[playerid] = 0;
+    if (cnt[0] == 0 && cnt[1] == 0)
+        endmulligan();
+}
+
 void Battle::clicksomething(MyTCPSocket *c, QString msg){
     int playerid;
     if (c == client[0]) playerid = 0;
@@ -519,7 +534,7 @@ void Battle::get_tar(int playerid, QString msg){
     QStringList msglist = msg.split(' ');
 
     switch (t) {
-    case 7:
+    case 7://niuquzhijing
         niuquzhijing();
 
         cards[playerid]->removeAt(k);
@@ -531,7 +546,7 @@ void Battle::get_tar(int playerid, QString msg){
 
         emit endturnsignal();
         break;
-    case 16:
+    case 16://poxiao
 
         break;
     case 19:
@@ -583,6 +598,8 @@ void Battle::get_tar(int playerid, QString msg){
             msglist = msg.split(' ');
             if (msglist.at(0).toInt() > 1){
                 index1 = msglist.at(0).toInt()^playerid;
+                if (!src->checkvalid(index1^playerid)) break;
+
                 index2 = msglist.at(1).toInt();
 
                 cards[index1]->insert(index2, src);
@@ -591,6 +608,15 @@ void Battle::get_tar(int playerid, QString msg){
 
                 gs->Send_Data(client[0], "move " + tostring(playerid, k, index1, index2));
                 gs->Send_Data(client[1], "move " + tostring(playerid^1, k, index1^1, index2));
+
+                if (t == 101) yigenifayin();
+                if (t == 181 || t ==  182 || t == 256) laowuyu();
+                if (t == 225) dashijiu();
+                if (t == 188) tuyuansu();
+                if (t == 63) xiezhizhu();
+                if (t == 66) saieryinuoyingshennvyao(index1, index2);
+                if (t == 75) yingshennvyao(index1, index2);
+                if (t == 169) lingjing();
 
                 emit endturnsignal();
             }
@@ -648,9 +674,11 @@ void Battle::FROST(int i){
         }
     }
     //nisilila
-    cards[i]->at(minid)->add_armor(-2);
-    gs->Send_Data(client[0], "bloodchange " + tostring(i, minid, 0, 0, -2));
-    gs->Send_Data(client[1], "bloodchange " + tostring(i^1, minid, 0, 0, -2));
+    int t = -2;
+    if (hasnisilila((i&1)^1)) t = -3;
+    cards[i]->at(minid)->add_armor(t);
+    gs->Send_Data(client[0], "bloodchange " + tostring(i, minid, 0, 0, t));
+    gs->Send_Data(client[1], "bloodchange " + tostring(i^1, minid, 0, 0, t));
 
     if (cards[i]->at(minid)->get_baseblood() <= 0){
         cards[8^(i&1)]->append(cards[i]->at(minid));
@@ -766,4 +794,155 @@ void Battle::niuquzhijing(){
     cards[minid%10]->at(minid/10)->add_boost(maxblood-minblood);
     gs->Send_Data(client[0], "bloodchange " + tostring(minid%10, minid/10, 0, maxblood-minblood, 0));
     gs->Send_Data(client[1], "bloodchange " + tostring((minid%10)^1, minid/10, 0, maxblood-minblood, 0));
+}
+
+void Battle::yigenifayin(){
+    int x = src->get_loc();
+    int sz = cards[x^1]->size();
+    int sum = 0, maxblood = 0;
+    for (int i = 0; i < sz; ++i){
+        Card *card = cards[x^1]->at(i);
+        int blood = card->get_baseblood()+card->get_boostblood();
+        sum += blood;
+        if (maxblood < blood) maxblood = blood;
+    }
+    if (sum >= 25){
+        for (int i = sz-1; i >= 0; --i){
+            Card *card = cards[x^1]->at(i);
+            int blood = card->get_baseblood()+card->get_boostblood();
+            if (blood == maxblood){
+                cards[8^((x^1)&1)]->append(card);
+                card->set_loc(8^((x^1)&1));
+                cards[x^1]->removeAt(i);
+
+                gs->Send_Data(client[0], "move " + tostring(x^1, i, 8^((x^1)&1)) );
+                gs->Send_Data(client[1], "move " + tostring(x, i, 8^((x^1)&1)^1) );
+            }
+        }
+    }
+}
+
+void Battle::laowuyu(){
+    int x = src->get_loc();
+    int index = cards[x]->indexOf(src);
+    int y = 10^(x&1);
+    int sz = cards[y]->size();
+    for (int i = sz-1; i >= 0; --i){
+        Card* card = cards[y]->at(i);
+        int t = card->get_id();
+        if (t == 181 || t == 182 || t == 256){
+            cards[x]->insert(index, card);
+            card->set_loc(x);
+            cards[y]->removeAt(i);
+
+            gs->Send_Data(client[0], "move " + tostring(y, i, x, index));
+            gs->Send_Data(client[1], "move " + tostring(y^1, i, x^1, index));
+        }
+    }
+}
+
+void Battle::dashijiu(){
+    int x = src->get_loc();
+    sky[x] = clean;
+    gs->Send_Data(client[0], "sky " + tostring(x, 0));
+    gs->Send_Data(client[1], "sky " + tostring(x^1, 0));
+}
+
+void Battle::tuyuansu(){
+    src->set_ARMOR(true);
+    connect(src, SIGNAL(deathwish(int)), this, SLOT(cijituyuansu(int)));
+
+    int index1 = src->get_loc();
+    int index2 = cards[index1]->indexOf(src);
+    gs->Send_Data(client[0], "getARMOR " + tostring(index1, index2) );
+    gs->Send_Data(client[1], "getARMOR " + tostring(index1^1, index2) );
+}
+
+void Battle::cijituyuansu(int playerid){
+    for (int i = 0; i < 2; ++i){
+        Card *tmp = new Card(189);
+        cards[6^playerid]->append(tmp);
+        tmp->set_loc(6^playerid);
+
+        gs->Send_Data(client[0], "new " + tostring(189, 6^playerid));
+        gs->Send_Data(client[1], "new " + tostring(189, 6^playerid^1));
+    }
+}
+
+bool Battle::hasnisilila(int t){
+    for (int i = t+2; i < 8; i += 2){
+        foreach (Card *card, *cards[i])
+            if (card->get_id() == 236)
+                return true;
+    }
+    return false;
+}
+
+void Battle::xiezhizhu(){
+    int x = 10^(cur&1);
+    int sz = cards[x]->size();
+    for (int i = sz-1; i >= 0; --i)
+    if (cards[x]->at(i)->get_id() == 63){
+        Card *card = cards[x]->at(i);
+
+        cards[4^cur]->append(card);
+        card->set_loc(4^cur);
+        cards[x]->removeAt(i);
+
+        gs->Send_Data(client[0], "move " + tostring(x, i, 4^cur));
+        gs->Send_Data(client[1], "move " + tostring(x^1, i, 4^cur^1));
+
+    }
+}
+
+void Battle::saieryinuoyingshennvyao(int index1, int index2){
+    for (int i = 0; i < 2; ++i){
+        Card *tmp = new Card(67);
+        cards[index1]->insert(index2, tmp);
+        tmp->set_loc(index1);
+
+        connect(tmp, SIGNAL(deathwish(int)), this, SLOT(yingshengnvyaodan(int)));
+
+        gs->Send_Data(client[0], "new " + tostring(67, index1, index2));
+        gs->Send_Data(client[1], "new " + tostring(67, index1^1, index2));
+    }
+}
+
+void Battle::yingshengnvyaodan(int playerid){
+    int index1 = (qrand()%3+1)*2+playerid;
+    int index2 = qrand()%(cards[index1]->size()+1);
+    Card *card = new Card(75);
+    cards[index1]->insert(index2, card);
+    card->set_loc(index1);
+
+    gs->Send_Data(client[0], "new " + tostring(75, index1, index2));
+    gs->Send_Data(client[1], "new " + tostring(75, index1^1, index2));
+
+    yingshennvyao(index1, index2);
+}
+
+void Battle::yingshennvyao(int index1, int index2){
+    Card *card;
+    if (index2 > 0){
+        card = cards[index1]->at(index2-1);
+        card->emitdeathwish();
+    }
+    if (index2+1 < cards[index1]->size()){
+        card = cards[index1]->at(index2+1);
+        card->emitdeathwish();
+    }
+}
+
+void Battle::lingjing(){
+    for (int i = 0; i < 3; ++i){
+        Card *card = new Card(170);
+        cards[6^cur]->append(card);
+        card->set_loc(6^cur);
+
+        gs->Send_Data(client[0], "new " + tostring(189, 6^cur));
+        gs->Send_Data(client[1], "new " + tostring(189, 6^cur^1));
+    }
+
+    int x = src->get_loc();
+    birinongwu(x^1);
 }

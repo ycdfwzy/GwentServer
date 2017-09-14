@@ -32,12 +32,12 @@ Card::Card(int id, QObject *parent) : QObject(parent)
                         for (int i = 0; i < 12; ++i)
                             flag[i] = true;
                         if (baseblood > 0){
-                            lane = tmp.take("location").toVariant().toInt();
+                            lane = tmp.take("location").toVariant().toString();
                             if (lane.contains("disloyal")){
                                 for (int i = 2; i < 8; i += 2)
                                     flag[i] = false;
                             } else {
-                                for (int i = 1; i < 8; i += 2)
+                                for (int i = 3; i < 8; i += 2)
                                     flag[i] = false;
                             }
                             if (lane.contains("siege")){
@@ -57,67 +57,6 @@ Card::Card(int id, QObject *parent) : QObject(parent)
             }
         }
     }
-/*
-    switch (id) {
-    case 16:    //刺骨冰霜
-        name = "刺骨冰霜";
-        break;
-    case 8:    //刺骨冰霜
-        break;
-    case 18:   //蔽日浓雾
-        break;
-    case 41:   //倾盆大雨
-        break;
-    case 19:   //撕裂
-        break;
-    case 17:   //免疫增强
-        break;
-    case 10:  //指挥号角
-        break;
-    case 7:   //贝克尔的扭曲之镜
-        break;
-    case 101: //杰洛特：伊格尼法印
-        break;
-    case 183: //达冈
-        break;
-    case 57:  //小雾妖
-        break;
-    case 58:  //盖尔
-        break;
-    case 66:  //赛尔伊诺鹰身女妖
-        break;
-    case 75:  //鹰身女妖
-        break;
-    case 169: //林精
-        break;
-    case 188: //土元素
-        break;
-    case 181: //老巫妪：织婆
-        break;
-    case 182: //老巫妪：呢喃婆
-        break;
-    case 256: //老巫妪：煮婆
-        break;
-    case 225: //大狮鹫
-        break;
-    case 236: //尼斯里拉
-        break;
-    case 281: //卡兰希尔
-        break;
-    case 294: //畏惧者
-        break;
-    case 166: //暗影长者
-        break;
-    case 63:  //蟹蜘蛛
-        break;
-    case 167: //蜥蜴人战士
-        break;
-    case 171: //蟹蜘蛛巨兽
-        break;
-    default:
-        break;
-    }
-*/
 }
 
 Card::Card(const Card &c){
@@ -133,7 +72,17 @@ Card::Card(const Card &c){
     armor = c.armor;
 }
 
-void Card::set_loc(int loc){ curloc = loc;}
+void Card::emitdeathwish(){
+    emit deathwish(curloc&1);
+}
+
+void Card::set_loc(int loc){
+    curloc = loc;
+    if (curloc == 8 || curloc == 9)
+        emit deathwish(curloc&1);
+}
+
+int Card::get_loc(){return curloc;}
 QString Card::get_name() const{return name;}
 QString Card::get_faction() const{return faction;}
 QString Card::get_picpath() const{return picpath;}
@@ -144,7 +93,10 @@ int Card::get_id() const{return id;}
 int Card::get_baseblood() const{return baseblood;}
 int Card::get_boostblood() const{return boostblood;}
 int Card::get_armor() const{return armor;}
-bool Card::checkvalid(int loc){return flag[loc];}
+bool Card::checkvalid(int loc){
+    qDebug() << flag[2] << flag[3] << flag[4] << flag[5] << flag[6] << flag[7];
+    return flag[loc];
+}
 bool Card::get_ARMOR(){return ARMOR;}
 void Card::set_ARMOR(bool f){ARMOR = f;}
 void Card::add_armor(int dlt){
@@ -173,4 +125,12 @@ void Card::add_base(int dlt){
     baseblood += dlt;
     if (baseblood < 0)
         baseblood = 0;
+}
+
+void Card::reset(){
+    Card *tmp = new Card(id);
+    baseblood = tmp->get_baseblood();
+    boostblood = 0;
+    armor = 0;
+    ARMOR = false;
 }

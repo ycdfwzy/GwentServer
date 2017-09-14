@@ -287,5 +287,38 @@
         "blood": 0,
         "color": "brown",
         "type": "属性：特殊，天气。站位：任意"
+    },
+    "189": {
+        "faction": "怪物",
+        "name_cn": "次级土元素",
+        "name_us": "Lesser Earth Elemental",
+        "picpath": ":/cards/cards/images/ci4ji2tu3yuan2su4.png",
+        "rule": "无特殊能力。",
+        "blood": 2,
+        "color": "brown",
+        "location": "melee_loyal",
+        "type": "属性：构造体。站位：近战/忠诚。"
+    },
+    "67":{
+        "faction": "怪物",
+        "name_cn": "鹰身女妖蛋",
+        "name_us": "Harpy Egg",
+        "picpath": ":/cards/cards/images/ying1shen1nv3yao1dan4.png",
+        "rule": "被1张怪兽单位牌吸收战力时，使吸收者额外获得5的战力。遗愿：在随机排生成一个鹰身女妖。",
+        "blood": 1,
+        "color": "brown",
+        "location": "agile_loyal",
+        "type": "属性：佚亡。站位：任意/忠诚。"
+    },
+    "170":{
+        "faction": "怪物",
+        "name_cn": "暴怒的狼",
+        "name_us": "Rabid Wolf",
+        "picpath": ":/cards/cards/images/bao4nu4de1lang2.png",
+        "rule": "无特殊能力",
+        "blood": 1,
+        "color": "brown",
+        "location": "melee_loyal",
+        "type": "属性：佚亡。站位：近战/忠诚。"
     }
 }

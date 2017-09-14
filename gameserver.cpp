@@ -186,5 +186,10 @@ void gameServer::dealwithmsg(MyTCPSocket *client, QString str){
         if (client->get_player()->get_battle() != nullptr){
             client->get_player()->get_battle()->tosurrender(client);
         }
+    } else
+    if (str.startsWith("endmulligan")){
+        if (client->get_player()->get_battle() != nullptr){
+            client->get_player()->get_battle()->quitmulligan(client);
+        }
     }
 }

@@ -26,14 +26,18 @@ public:
     int get_boostblood() const;
     int get_armor() const;
     void set_loc(int);
+    int get_loc();
     void add_base(int);
     void add_boost(int);
     void add_armor(int);
     void set_ARMOR(bool);
     bool get_ARMOR();
     bool checkvalid(int loc);
+    void reset();
+    void emitdeathwish();
 
 signals:
+    void deathwish(int);
 
 public slots:
 
