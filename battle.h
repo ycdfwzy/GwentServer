@@ -32,8 +32,11 @@ public:
     void mianyizengqiang(int, int);
     void silie(int);
     void birinongwu(int);
+    void FOG(int);
     void qingpengdayu(int);
+    void RAIN(int);
     void ciguhanbing(int);
+    void FROST(int);
     void niuquzhijing();
     void qingkong();
 

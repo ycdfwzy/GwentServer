@@ -2,6 +2,10 @@
 #include "gameserver.h"
 #include <algorithm>
 
+QString tostring(int x1, int x2){
+    return QString::number(x1) + " " + QString::number(x2);
+}
+
 QString tostring(int x1, int x2, int x3){
     return QString::number(x1) + " " + QString::number(x2) + " " + QString::number(x3);
 }
@@ -214,8 +218,8 @@ void Battle::startround(){
         }
 
         sky[i] = clean;
-        gs->Send_Data(client[0], "cleansky " + QString::number(i));
-        gs->Send_Data(client[1], "cleansky " + QString::number(i^1));
+        gs->Send_Data(client[0], "sky " + tostring(i, 0));
+        gs->Send_Data(client[1], "sky " + tostring(i^1, 0));
     }
 
     //send to players
@@ -241,6 +245,25 @@ void Battle::startturn(){
         return;
     }
 
+    //sky
+    for (int i = cur+2; i < 8; i+=2){
+        switch (sky[i]) {
+        case fog:
+            FOG(i);
+            break;
+        case frost:
+            FROST(i);
+            break;
+        case rain:
+            RAIN(i);
+            break;
+        default:
+            break;
+        }
+    }
+    //Vran Warrior
+
+
     ts = getsrc;
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(endturn()));
@@ -250,10 +273,6 @@ void Battle::startturn(){
     //send to players
     gs->Send_Data(client[cur], "turn_m!");
     gs->Send_Data(client[cur^1], "turn_o!");
-
-    //sky
-    //Vran Warrior
-
 }
 
 void Battle::endround(){
@@ -328,6 +347,7 @@ void Battle::endturn(){
         Card *tmp = cards[cur]->at(t);
         cards[cur]->removeAt(t);
         cards[8^cur]->append(tmp);
+        tmp->set_loc(8^cur);
         //QString msg = "mcard " + QString::number(t) + " mgraveyard";
 
         gs->Send_Data(client[0], "move " + tostring(cur, t, 8^cur));
@@ -350,6 +370,8 @@ void Battle::domulligan(int playerid, int index){
         cards[10^playerid]->removeAt(t);
         cards[playerid]->append(tmp2);
         cards[10^playerid]->append(tmp1);
+        tmp1->set_loc(10^playerid);
+        tmp2->set_loc(playerid);
 
         // send to players
 
@@ -483,12 +505,35 @@ void Battle::get_tar(int playerid, QString msg){
         return;
     }
 
+    if (msg.startsWith("0 ")){
+        QStringList msglist = msg.split(" ");
+        int index = msglist.at(1).toInt();
+        src = cards[playerid]->at(index);
+        ts = gettar;
+        return;
+    }
+
     int k = cards[playerid]->indexOf(src);
     int index1, index2;
     int t = src->get_id();
     QStringList msglist = msg.split(' ');
 
     switch (t) {
+    case 7:
+        niuquzhijing();
+
+        cards[playerid]->removeAt(k);
+        cards[8^playerid]->append(src);
+        src->set_loc(8^playerid);
+
+        gs->Send_Data(client[0], "move " + tostring(playerid, k, 8^playerid));
+        gs->Send_Data(client[1], "move " + tostring(playerid^1, k, 8^playerid^1));
+
+        emit endturnsignal();
+        break;
+    case 16:
+
+        break;
     case 19:
     case 18:
     case 41:
@@ -501,8 +546,13 @@ void Battle::get_tar(int playerid, QString msg){
         else if (t == 41) qingpengdayu(index1);
         else if (t == 8) ciguhanbing(index1);
 
+        cards[playerid]->removeAt(k);
+        cards[8^playerid]->append(src);
+        src->set_loc(8^playerid);
+
         gs->Send_Data(client[0], "move " + tostring(playerid, k, 8^playerid));
         gs->Send_Data(client[1], "move " + tostring(playerid^1, k, 8^playerid^1));
+
         emit endturnsignal();
         break;
     case 10:
@@ -516,6 +566,10 @@ void Battle::get_tar(int playerid, QString msg){
             {
                 mianyizengqiang(index1, index2);
             }
+
+            cards[playerid]->removeAt(k);
+            cards[8^playerid]->append(src);
+            src->set_loc(8^playerid);
 
             gs->Send_Data(client[0], "move " + tostring(playerid, k, 8^playerid));
             gs->Send_Data(client[1], "move " + tostring(playerid^1, k, 8^playerid^1));
@@ -533,8 +587,7 @@ void Battle::get_tar(int playerid, QString msg){
 
                 cards[index1]->insert(index2, src);
                 src->set_loc(index1);
-
-                cards[playerid]->removeAll(src);
+                cards[playerid]->removeAt(k);
 
                 gs->Send_Data(client[0], "move " + tostring(playerid, k, index1, index2));
                 gs->Send_Data(client[1], "move " + tostring(playerid^1, k, index1^1, index2));
@@ -577,15 +630,101 @@ void Battle::mianyizengqiang(int x, int y){
 }
 
 void Battle::ciguhanbing(int x){
+    sky[x] = frost;
+    gs->Send_Data(client[0], "sky " + tostring(x, 2));
+    gs->Send_Data(client[1], "sky " + tostring(x^1, 2));
+}
 
+void Battle::FROST(int i){
+    int minblood = 1000, minid;
+    int sz = cards[i]->size();
+    if (sz == 0) return;
+    for (int j = 0; j < sz; ++j){
+        Card* card = cards[i]->at(j);
+        int blood = card->get_baseblood()+card->get_boostblood();
+        if (blood < minblood){
+            minblood = blood;
+            minid = j;
+        }
+    }
+    //nisilila
+    cards[i]->at(minid)->add_armor(-2);
+    gs->Send_Data(client[0], "bloodchange " + tostring(i, minid, 0, 0, -2));
+    gs->Send_Data(client[1], "bloodchange " + tostring(i^1, minid, 0, 0, -2));
+
+    if (cards[i]->at(minid)->get_baseblood() <= 0){
+        cards[8^(i&1)]->append(cards[i]->at(minid));
+        cards[i]->at(minid)->set_loc(8^(i&1));
+        cards[i]->removeAt(minid);
+        gs->Send_Data(client[0], "move " + tostring(i, minid, 8^(i&1)));
+        gs->Send_Data(client[1], "move " + tostring(i^1, minid, 8^(i&1)^1));
+    }
 }
 
 void Battle::birinongwu(int x){
+    sky[x] = fog;
+    gs->Send_Data(client[0], "sky " + tostring(x, 1));
+    gs->Send_Data(client[1], "sky " + tostring(x^1, 1));
+}
 
+void Battle::FOG(int i){
+    int maxblood = -1, maxid;
+    int sz = cards[i]->size();
+    if (sz == 0) return;
+    for (int j = 0; j < sz; ++j){
+        Card* card = cards[i]->at(j);
+        int blood = card->get_baseblood()+card->get_boostblood();
+        if (blood > maxblood){
+            maxblood = blood;
+            maxid = j;
+        }
+    }
+    cards[i]->at(maxid)->add_armor(-2);
+
+    gs->Send_Data(client[0], "bloodchange " + tostring(i, maxid, 0, 0, -2));
+    gs->Send_Data(client[1], "bloodchange " + tostring(i^1, maxid, 0, 0, -2));
+
+    if (cards[i]->at(maxid)->get_baseblood() <= 0){
+        cards[8^(i&1)]->append(cards[i]->at(maxid));
+        cards[i]->at(maxid)->set_loc(8^(i&1));
+        cards[i]->removeAt(maxid);
+        gs->Send_Data(client[0], "move " + tostring(i, maxid, 8^(i&1)));
+        gs->Send_Data(client[1], "move " + tostring(i^1, maxid, 8^(i&1)^1));
+    }
 }
 
 void Battle::qingpengdayu(int x){
+    sky[x] = rain;
+    gs->Send_Data(client[0], "sky " + tostring(x, 3));
+    gs->Send_Data(client[1], "sky " + tostring(x^1, 3));
+}
 
+void Battle::RAIN(int i){
+    int minblood_ = 1000;
+    int sz = cards[i]->size();
+    if (sz == 0) return;
+    for (int j = 0; j < sz; ++j){
+        Card* card = cards[i]->at(j);
+        int blood = card->get_baseblood()+card->get_boostblood();
+        if (blood < minblood_) minblood_ = blood;
+    }
+    for (int j = sz-1; j >= 0; --j){
+        Card* card = cards[i]->at(j);
+        int blood = card->get_baseblood()+card->get_boostblood();
+        if (blood == minblood_){
+            card->add_armor(-1);
+            gs->Send_Data(client[0], "bloodchange " + tostring(i, j, 0, 0, -1));
+            gs->Send_Data(client[1], "bloodchange " + tostring(i^1, j, 0, 0, -1));
+
+            if (card->get_baseblood() <= 0){
+                cards[8^(i&1)]->append(card);
+                card->set_loc(8^(i&1));
+                cards[i]->removeAt(j);
+                gs->Send_Data(client[0], "move " + tostring(i, j, 8^(i&1)));
+                gs->Send_Data(client[1], "move " + tostring(i^1, j, 8^(i&1)^1));
+            }
+        }
+    }
 }
 
 void Battle::silie(int x){
@@ -597,4 +736,34 @@ void Battle::silie(int x){
         gs->Send_Data(client[0], "bloodchange " + tostring(x, i, 0, 0, -3));
         gs->Send_Data(client[1], "bloodchange " + tostring(x^1, i, 0, 0, -3));
     }
+}
+
+void Battle::niuquzhijing(){
+    int maxblood = -1, maxid;
+    int minblood = 1000, minid;
+    for (int i = 2; i < 8; ++i){
+        int sz = cards[i]->size();
+        for (int j = 0; j < sz; ++j){
+            Card *card = cards[i]->at(j);
+            int blood = card->get_baseblood() + card->get_boostblood();
+            if (blood > maxblood){
+                maxblood = blood;
+                maxid = j*10+i;
+            }
+            if (blood < minblood){
+                minblood = blood;
+                minid = j*10+i;
+            }
+        }
+    }
+    if (maxblood < 0 || minblood == maxblood) return;
+
+    cards[maxid%10]->at(maxid/10)->add_boost(minblood-maxblood);
+
+    gs->Send_Data(client[0], "bloodchange " + tostring(maxid%10, maxid/10, 0, minblood-maxblood, 0));
+    gs->Send_Data(client[1], "bloodchange " + tostring((maxid%10)^1, maxid/10, 0, minblood-maxblood, 0));
+
+    cards[minid%10]->at(minid/10)->add_boost(maxblood-minblood);
+    gs->Send_Data(client[0], "bloodchange " + tostring(minid%10, minid/10, 0, maxblood-minblood, 0));
+    gs->Send_Data(client[1], "bloodchange " + tostring((minid%10)^1, minid/10, 0, maxblood-minblood, 0));
 }
